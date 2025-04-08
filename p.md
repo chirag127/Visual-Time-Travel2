@@ -251,3 +251,5 @@ make the code as modular as possible, so that it can be reused in other projects
 -   Execute projects fully rather than providing partial or incomplete solutions.
 -   Avoid code duplication by building upon existing implementations.
 -   Ensure code is as **modular** as possible for reusability and maintainability.
+
+make the code as modular as possible, so that it can be reused in other projects. The code should be well-documented and follow best practices for readability and maintainability. Use ES6+ syntax where applicable.
