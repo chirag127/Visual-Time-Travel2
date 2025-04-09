@@ -8,7 +8,7 @@
  */
 
 // Configuration
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://visual-time-travel2.onrender.com/api";
 let isCapturingEnabled = true;
 let lastActiveTabId = null;
 let processingTab = false;

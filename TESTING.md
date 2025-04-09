@@ -4,7 +4,7 @@ This document provides instructions on how to test the Visual Time Travel browse
 
 ## Prerequisites
 
-1. Make sure the backend server is running on `http://localhost:5000`
+1. Make sure the backend server is running on `https://visual-time-travel2.onrender.com`
 2. Make sure you have Chrome, Edge, or Firefox installed
 
 ## Loading the Extension in Chrome
@@ -54,9 +54,9 @@ If you encounter issues, you can use the test page to diagnose problems:
 2. Navigate to `chrome-extension://[EXTENSION_ID]/html/test.html`
    (Replace `[EXTENSION_ID]` with your actual extension ID from `chrome://extensions/`)
 3. Use the buttons on the test page to check:
-   - Authentication status
-   - Storage data
-   - API connection
+    - Authentication status
+    - Storage data
+    - API connection
 
 ### 5. Checking the Backend
 
@@ -64,28 +64,28 @@ You can also check if data is being saved to the backend:
 
 1. Open a terminal
 2. Run the following command to check if history items are being saved:
-   ```
-   curl http://localhost:5000/api/history -H "Authorization: Bearer YOUR_TOKEN"
-   ```
-   (Replace `YOUR_TOKEN` with the actual token from the test page)
+    ```
+    curl https://visual-time-travel2.onrender.com/api/history -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+    (Replace `YOUR_TOKEN` with the actual token from the test page)
 
 ## Troubleshooting
 
 ### Login/Registration Issues
 
-- Check if the backend server is running
-- Check browser console for errors
-- Try using the test page to diagnose authentication issues
+-   Check if the backend server is running
+-   Check browser console for errors
+-   Try using the test page to diagnose authentication issues
 
 ### Screenshot Capture Issues
 
-- Make sure you're logged in
-- Check if capturing is enabled in the popup
-- Check browser console for errors
-- Try navigating to different websites
+-   Make sure you're logged in
+-   Check if capturing is enabled in the popup
+-   Check browser console for errors
+-   Try navigating to different websites
 
 ### Timeline Issues
 
-- Make sure you have captured some screenshots
-- Check browser console for errors
-- Try refreshing the timeline page
+-   Make sure you have captured some screenshots
+-   Check browser console for errors
+-   Try refreshing the timeline page

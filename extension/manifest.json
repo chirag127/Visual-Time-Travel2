@@ -12,7 +12,7 @@
     "webNavigation"
   ],
   "host_permissions": [
-    "http://localhost:5000/*"
+    "https://visual-time-travel2.onrender.com/*"
   ],
   "background": {
     "service_worker": "js/background-simple.js"
