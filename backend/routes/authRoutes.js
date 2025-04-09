@@ -3,59 +3,44 @@
  * @module routes/authRoutes
  */
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const authController = require("../controllers/authController");
+const authMiddleware = require("../middleware/authMiddleware");
 
 /**
  * @route POST /api/auth/signup
  * @desc Register a new user
  * @access Public
  */
-router.post('/signup', (req, res) => {
-  // Placeholder for signup route
-  res.status(200).json({
-    success: true,
-    message: 'Signup route placeholder'
-  });
-});
+router.post("/signup", authController.signup);
 
 /**
  * @route POST /api/auth/login
  * @desc Login a user
  * @access Public
  */
-router.post('/login', (req, res) => {
-  // Placeholder for login route
-  res.status(200).json({
-    success: true,
-    message: 'Login route placeholder'
-  });
-});
+router.post("/login", authController.login);
 
 /**
  * @route POST /api/auth/logout
  * @desc Logout a user
  * @access Private
  */
-router.post('/logout', (req, res) => {
-  // Placeholder for logout route
-  res.status(200).json({
-    success: true,
-    message: 'Logout route placeholder'
-  });
-});
+router.post("/logout", authMiddleware, authController.logout);
 
 /**
- * @route POST /api/auth/forgot-password
- * @desc Request password reset
- * @access Public
+ * @route GET /api/auth/me
+ * @desc Get current user
+ * @access Private
  */
-router.post('/forgot-password', (req, res) => {
-  // Placeholder for forgot password route
-  res.status(200).json({
-    success: true,
-    message: 'Forgot password route placeholder'
-  });
-});
+router.get("/me", authMiddleware, authController.getCurrentUser);
+
+/**
+ * @route PUT /api/auth/preferences
+ * @desc Update user preferences
+ * @access Private
+ */
+router.put("/preferences", authMiddleware, authController.updatePreferences);
 
 module.exports = router;
