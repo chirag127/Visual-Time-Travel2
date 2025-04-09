@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visual Time Travel</title>
   <link rel="stylesheet" href="../css/popup.css">
 </head>
+
 <body>
   <div class="container">
     <header>
       <h1>Visual Time Travel</h1>
     </header>
-    
+
     <!-- Authentication Section -->
     <section id="auth-section">
-      <div id="login-form" class="hidden">
+      <div id="login-form">
         <h2>Login</h2>
         <form id="login-form-element">
           <div class="form-group">
@@ -32,7 +34,7 @@
           <div id="login-error" class="error-message hidden"></div>
         </form>
       </div>
-      
+
       <div id="signup-form" class="hidden">
         <h2>Sign Up</h2>
         <form id="signup-form-element">
@@ -55,13 +57,13 @@
           <div id="signup-error" class="error-message hidden"></div>
         </form>
       </div>
-      
+
       <div id="user-info" class="hidden">
         <p>Logged in as <span id="user-email"></span></p>
         <button id="logout-btn" class="btn btn-secondary">Logout</button>
       </div>
     </section>
-    
+
     <!-- Controls Section -->
     <section id="controls-section" class="hidden">
       <div class="toggle-container">
@@ -71,26 +73,27 @@
           <span class="toggle-slider"></span>
         </div>
       </div>
-      
+
       <div class="form-group">
         <label for="retention-days">History Retention (days)</label>
         <input type="number" id="retention-days" min="1" max="365" value="30">
       </div>
-      
+
       <button id="save-preferences-btn" class="btn btn-primary">Save Preferences</button>
       <div id="preferences-message" class="message hidden"></div>
     </section>
-    
+
     <!-- Timeline Button -->
     <section id="timeline-section" class="hidden">
       <button id="open-timeline-btn" class="btn btn-primary btn-block">View Timeline</button>
     </section>
-    
+
     <footer>
       <p>Visual Time Travel &copy; 2023</p>
     </footer>
   </div>
-  
-  <script type="module" src="../js/popup.js"></script>
+
+  <script src="../js/popup-simple.js"></script>
 </body>
+
 </html>

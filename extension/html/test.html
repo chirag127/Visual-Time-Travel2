@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Time Travel - Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #4a6da7;
+    }
+    .test-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #4a6da7;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3a5a8c;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .success {
+      color: #28a745;
+    }
+    .error {
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visual Time Travel - Test Page</h1>
+  
+  <div class="test-section">
+    <h2>Authentication Test</h2>
+    <button id="check-auth-btn">Check Authentication</button>
+    <div id="auth-result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Storage Test</h2>
+    <button id="check-storage-btn">Check Storage</button>
+    <div id="storage-result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>API Test</h2>
+    <button id="test-api-btn">Test API Connection</button>
+    <div id="api-result"></div>
+  </div>
+  
+  <script>
+    // Authentication Test
+    document.getElementById('check-auth-btn').addEventListener('click', async () => {
+      const resultElement = document.getElementById('auth-result');
+      
+      try {
+        // Check if chrome.storage is available
+        if (!chrome.storage) {
+          throw new Error('chrome.storage is not available. This page must be opened from within the extension.');
+        }
+        
+        // Get auth data from storage
+        chrome.storage.local.get(['auth'], (result) => {
+          const auth = result.auth;
+          
+          if (auth && auth.token && new Date(auth.expiresAt) > new Date()) {
+            resultElement.innerHTML = `
+              <p class="success">Authenticated as: ${auth.email || 'Unknown'}</p>
+              <p>Token expires at: ${new Date(auth.expiresAt).toLocaleString()}</p>
+              <pre>${JSON.stringify(auth, null, 2)}</pre>
+            `;
+          } else {
+            resultElement.innerHTML = `
+              <p class="error">Not authenticated</p>
+              <pre>${JSON.stringify(auth || {}, null, 2)}</pre>
+            `;
+          }
+        });
+      } catch (error) {
+        resultElement.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+      }
+    });
+    
+    // Storage Test
+    document.getElementById('check-storage-btn').addEventListener('click', async () => {
+      const resultElement = document.getElementById('storage-result');
+      
+      try {
+        // Check if chrome.storage is available
+        if (!chrome.storage) {
+          throw new Error('chrome.storage is not available. This page must be opened from within the extension.');
+        }
+        
+        // Get all data from storage
+        chrome.storage.local.get(null, (result) => {
+          resultElement.innerHTML = `
+            <p class="success">Storage data retrieved successfully</p>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+          `;
+        });
+      } catch (error) {
+        resultElement.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+      }
+    });
+    
+    // API Test
+    document.getElementById('test-api-btn').addEventListener('click', async () => {
+      const resultElement = document.getElementById('api-result');
+      
+      try {
+        // Make a request to the API
+        const response = await fetch('http://localhost:5000');
+        const data = await response.json();
+        
+        resultElement.innerHTML = `
+          <p class="success">API connection successful</p>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+        `;
+      } catch (error) {
+        resultElement.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>

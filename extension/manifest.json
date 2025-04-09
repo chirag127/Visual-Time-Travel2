@@ -8,14 +8,14 @@
     "activeTab",
     "storage",
     "scripting",
-    "history"
+    "history",
+    "webNavigation"
   ],
   "host_permissions": [
     "http://localhost:5000/*"
   ],
   "background": {
-    "service_worker": "js/background.js",
-    "type": "module"
+    "service_worker": "js/background-simple.js"
   },
   "action": {
     "default_popup": "html/popup.html",
@@ -35,8 +35,16 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["html/timeline.html", "css/*", "js/*", "images/*"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "html/timeline.html",
+        "html/test.html",
+        "css/*",
+        "js/*",
+        "images/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }
