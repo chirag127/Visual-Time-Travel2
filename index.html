@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Time Travel - Browser Extension</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Variables */
+            --primary-color: #4a6da7;
+            --primary-dark: #3a5a8c;
+            --secondary-color: #6c757d;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text-primary: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --accent-color: #7c4dff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--darker-bg);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .title-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--darker-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            font-size: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+        }
+
+        .installation-steps, .usage-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 0.5rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 120px;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-name {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--darker-bg);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-stack {
+                gap: 1rem;
+            }
+
+            .tech-item {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-container h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature-title {
+                font-size: 1.2rem;
+            }
+
+            .step-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-clock-rotate-left"></i>
+                </div>
+                <div class="title-container">
+                    <h1>Visual Time Travel</h1>
+                    <p class="tagline">Your browsing history, visualized like never before</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a href="https://github.com/chirag127/Visual-Time-Travel2" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-github"></i> GitHub Repository
+                </a>
+                <a href="privacy-policy.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About</h2>
+            </div>
+            <div class="about-content">
+                <p>Visual Time Travel is a browser extension that captures and organizes a visual timeline of your browsing history. As you navigate the web, the extension automatically takes screenshots of the pages you visit, creating a visual record that makes it easy to find and revisit important information.</p>
+                <p>Unlike traditional text-based history, Visual Time Travel gives you a visual snapshot of each page, making it easier to recognize and recall the content you've seen before. It's like having a photographic memory for your web browsing!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Features</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="feature-title">Automatic Screenshot Capture</h3>
+                    <p class="feature-description">Automatically captures screenshots when you navigate to new tabs, creating a visual record of your browsing activity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Visual Timeline</h3>
+                    <p class="feature-description">Browse your history with an intuitive visual timeline that makes it easy to find and revisit important pages.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">Search & Filter</h3>
+                    <p class="feature-description">Quickly find what you're looking for with powerful search and filtering options based on date, domain, or keywords.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-title">Secure Storage</h3>
+                    <p class="feature-description">All your data is stored securely in a MongoDB database with proper authentication and encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-toggle-on"></i>
+                    </div>
+                    <h3 class="feature-title">Customizable Settings</h3>
+                    <p class="feature-description">Control when screenshots are captured with customizable settings to suit your preferences.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Cross-Browser Support</h3>
+                    <p class="feature-description">Works seamlessly across Chrome, Firefox, and Edge browsers for a consistent experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Installation</h2>
+            </div>
+            <div class="installation-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3 class="step-title">Download the Extension</h3>
+                    <p>Clone or download the repository from <a href="https://github.com/chirag127/Visual-Time-Travel2" target="_blank">GitHub</a>.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3 class="step-title">Open Extensions Page</h3>
+                    <p>Navigate to your browser's extensions page:</p>
+                    <ul>
+                        <li>Chrome: Go to <code>chrome://extensions/</code></li>
+                        <li>Edge: Go to <code>edge://extensions/</code></li>
+                        <li>Firefox: Go to <code>about:debugging#/runtime/this-firefox</code></li>
+                    </ul>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3 class="step-title">Enable Developer Mode</h3>
+                    <p>Enable Developer Mode by toggling the switch in the top-right corner (Chrome/Edge) or clicking "This Firefox" in the sidebar (Firefox).</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <h3 class="step-title">Load the Extension</h3>
+                    <p>Click "Load unpacked" (Chrome/Edge) or "Load Temporary Add-on" (Firefox) and select the <code>extension</code> directory from the downloaded repository.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <h3 class="step-title">Set Up Backend (Optional)</h3>
+                    <p>For full functionality, set up the backend server by following the instructions in the repository's README.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Use</h2>
+            </div>
+            <div class="usage-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3 class="step-title">Sign Up or Log In</h3>
+                    <p>Click on the extension icon in your browser toolbar and create an account or log in to your existing account.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3 class="step-title">Browse Normally</h3>
+                    <p>The extension will automatically capture screenshots as you browse the web. No additional action is required.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3 class="step-title">View Your Timeline</h3>
+                    <p>Click on the extension icon and select "View Timeline" to see your visual browsing history.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <h3 class="step-title">Search and Filter</h3>
+                    <p>Use the search bar and filters to find specific pages based on date, domain, or keywords.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <h3 class="step-title">Revisit Pages</h3>
+                    <p>Click on any screenshot in your timeline to revisit that page in a new tab.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">6</span>
+                    <h3 class="step-title">Adjust Settings (Optional)</h3>
+                    <p>Click on the extension icon and toggle screenshot capturing on/off as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technology Stack</h2>
+            </div>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <span class="tech-name">JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <span class="tech-name">HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <span class="tech-name">CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-chrome"></i>
+                    </div>
+                    <span class="tech-name">Chrome API</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <span class="tech-name">Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <span class="tech-name">Express.js</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <span class="tech-name">MongoDB</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <span class="tech-name">JWT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://github.com/chirag127/Visual-Time-Travel2" class="footer-link" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="privacy-policy.html" class="footer-link" target="_blank">
+                    <i class="fas fa-shield-alt"></i> Privacy Policy
+                </a>
+            </div>
+            <p class="copyright">&copy; 2023 Visual Time Travel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
