@@ -14,6 +14,13 @@ The extension works seamlessly in the background, capturing screenshots when you
 
 Check out our [Visual Time Travel Website](https://chirag127.github.io/Visual-Time-Travel2/) for more information and installation instructions.
 
+The website includes:
+
+-   Comprehensive overview of features and functionality
+-   Step-by-step installation guide
+-   Detailed privacy policy explaining data handling and permissions
+-   Dark-themed responsive design for optimal viewing on all devices
+
 ## 🧪 Features
 
 -   **Automatic Screenshot Capture**: Captures screenshots when you navigate to new tabs
@@ -63,6 +70,9 @@ visual-time-travel/
 │   │   └── authMiddleware.js
 │   └── services/
 │       └── imageUpload/
+├── index.html           # Landing page
+├── privacy-policy.html  # Privacy policy page
+├── styles.css           # Styles for landing pages
 └── README.md
 ```
 
@@ -168,6 +178,23 @@ We welcome contributions to Visual Time Travel! Here's how you can help:
 5. Open a Pull Request
 
 Please make sure to update tests as appropriate and follow our code of conduct.
+
+## 🌐 Website
+
+The project includes a GitHub Pages website with:
+
+-   **Landing Page**: Overview of the extension, features, and installation instructions
+-   **Privacy Policy**: Detailed information about data handling, permissions, and user rights
+-   **Responsive Design**: Dark-themed interface that works on all devices
+
+To view the website locally:
+
+```
+# Open index.html in your browser
+open index.html
+```
+
+The website is automatically deployed to GitHub Pages when changes are pushed to the main branch.
 
 ## 🚪 License
 

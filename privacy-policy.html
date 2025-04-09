@@ -4,362 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Visual Time Travel</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            /* Color Variables */
-            --primary-color: #4a6da7;
-            --primary-dark: #3a5a8c;
-            --secondary-color: #6c757d;
-            --dark-bg: #121212;
-            --darker-bg: #0a0a0a;
-            --card-bg: #1e1e1e;
-            --text-primary: #f8f9fa;
-            --text-secondary: #adb5bd;
-            --accent-color: #7c4dff;
-            --success-color: #28a745;
-            --danger-color: #dc3545;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--darker-bg);
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-        }
-
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .back-button {
-            align-self: flex-start;
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            background-color: var(--card-bg);
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .back-button:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .back-button i {
-            margin-right: 0.5rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .last-updated {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        main {
-            padding: 3rem 0;
-        }
-
-        section {
-            margin-bottom: 3rem;
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            box-shadow: var(--box-shadow);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .permission-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius);
-        }
-
-        .permission-name {
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .emphasis {
-            font-style: italic;
-            color: var(--success-color);
-        }
-
-        footer {
-            background-color: var(--darker-bg);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        .footer-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-link:hover {
-            color: var(--primary-color);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.3rem;
-            }
-
-            .back-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <meta name="description" content="Privacy Policy for Visual Time Travel browser extension.">
 </head>
-<body>
-    <header>
+<body class="privacy-policy-page">
+    <header class="privacy-header">
         <div class="container">
-            <div class="header-content">
+            <div class="privacy-header-content">
                 <a href="index.html" class="back-button">
                     <i class="fas fa-arrow-left"></i> Back to Home
                 </a>
                 <h1>Privacy Policy</h1>
-                <p class="last-updated">Last Updated: November 15, 2023</p>
             </div>
         </div>
     </header>
 
-    <main>
+    <main class="privacy-content">
         <div class="container">
-            <section id="introduction">
+            <section class="privacy-section">
                 <h2>Introduction</h2>
-                <p>Welcome to the Privacy Policy for Visual Time Travel ("we", "our", or "the extension"). This policy explains what information our browser extension collects, how it is used, and the measures we take to protect your privacy.</p>
-                <p>We are committed to protecting your privacy and ensuring that your browsing experience remains secure. This Privacy Policy is designed to help you understand our practices regarding the collection, use, and disclosure of information.</p>
-                <p>By installing and using the Visual Time Travel extension, you agree to the collection and use of information in accordance with this policy.</p>
+                <p>This Privacy Policy explains how Visual Time Travel ("we", "our", or "the extension") collects, uses, and protects your information when you use our browser extension. We are committed to ensuring the privacy and security of your data.</p>
+                <p><strong>Last Updated:</strong> November 15, 2023</p>
             </section>
 
-            <section id="permissions">
+            <section class="privacy-section">
                 <h2>Required Permissions</h2>
                 <p>Visual Time Travel requires certain browser permissions to function properly. Here's why each permission is necessary:</p>
                 
                 <div class="permission-item">
-                    <div class="permission-name">tabs</div>
-                    <p>This permission allows the extension to detect when you switch between tabs or navigate to new pages. It's essential for capturing screenshots at the right moment and associating them with the correct URL and page title.</p>
+                    <h3><code>tabs</code></h3>
+                    <p>This permission allows the extension to access information about browser tabs, including URLs, titles, and favicons. It's essential for capturing screenshots of tabs and organizing them in your visual history timeline.</p>
                 </div>
                 
                 <div class="permission-item">
-                    <div class="permission-name">activeTab</div>
-                    <p>This permission gives the extension temporary access to the currently active tab, allowing it to capture a screenshot of the visible content. Without this permission, the extension would not be able to create the visual history.</p>
+                    <h3><code>activeTab</code></h3>
+                    <p>This permission grants temporary access to the currently active tab when you interact with the extension. It's used to capture screenshots of the active tab and retrieve metadata about the page you're viewing.</p>
                 </div>
                 
                 <div class="permission-item">
-                    <div class="permission-name">storage</div>
-                    <p>This permission allows the extension to store your preferences (such as whether screenshot capturing is enabled) and authentication information locally in your browser. This ensures your settings persist between browser sessions.</p>
+                    <h3><code>storage</code></h3>
+                    <p>This permission allows the extension to store data locally in your browser. It's used to save your preferences, authentication information, and metadata about captured screenshots.</p>
                 </div>
                 
                 <div class="permission-item">
-                    <div class="permission-name">host permissions (http://*/*, https://*/*)</div>
-                    <p>These permissions allow the extension to capture screenshots on any website you visit. Without these permissions, the extension would not be able to function on most websites.</p>
+                    <h3><code>scripting</code></h3>
+                    <p>This permission allows the extension to execute scripts in web pages. It's used to capture screenshots and extract metadata from the pages you visit.</p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3><code>history</code></h3>
+                    <p>This permission allows the extension to access your browsing history. It's used to correlate captured screenshots with your browsing history for a more complete visual timeline.</p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3><code>webNavigation</code></h3>
+                    <p>This permission allows the extension to receive notifications about browser navigation events. It's used to detect when you navigate to a new page so that screenshots can be captured at the appropriate time.</p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3><code>host_permissions</code></h3>
+                    <p>The extension requests access to our backend API (<code>https://visual-time-travel2.onrender.com/*</code>) to store and retrieve screenshots and related metadata. This is necessary for the cloud storage functionality of the extension.</p>
                 </div>
             </section>
 
-            <section id="information-collected">
+            <section class="privacy-section">
                 <h2>Information We Collect</h2>
-                <p>Visual Time Travel collects the following information:</p>
+                
+                <h3>Information Collected Automatically</h3>
+                <p>When you use Visual Time Travel, we automatically collect:</p>
                 <ul>
-                    <li><span class="highlight">Screenshots:</span> The extension captures visual snapshots of the webpages you visit.</li>
-                    <li><span class="highlight">URLs:</span> The web addresses of the pages you visit are recorded to associate them with the corresponding screenshots.</li>
-                    <li><span class="highlight">Page Titles:</span> The titles of webpages are stored to help you identify pages in your visual history.</li>
-                    <li><span class="highlight">Timestamps:</span> The date and time when you visited each page are recorded to organize your browsing history chronologically.</li>
-                    <li><span class="highlight">Favicons:</span> The small icons associated with websites are stored to help you identify the source of each page.</li>
-                    <li><span class="highlight">User Preferences:</span> Your settings for the extension, such as whether screenshot capturing is enabled.</li>
+                    <li><strong>Screenshots:</strong> Visual captures of web pages you visit</li>
+                    <li><strong>Page Metadata:</strong> URLs, page titles, favicons, and timestamps</li>
+                    <li><strong>Technical Information:</strong> Browser type and version, operating system</li>
                 </ul>
                 
-                <p><span class="emphasis">What we DO NOT collect:</span></p>
+                <h3>Information You Provide</h3>
+                <p>We may also collect information you voluntarily provide, such as:</p>
                 <ul>
-                    <li>We do not collect your personal information beyond what is necessary for authentication (email).</li>
-                    <li>We do not track your browsing behavior for advertising purposes.</li>
-                    <li>We do not access or store your passwords, form data, or other sensitive information that may appear on webpages.</li>
-                    <li>We do not analyze the content of the pages you visit beyond capturing the visual representation.</li>
+                    <li><strong>Account Information:</strong> Email address and password (if you create an account)</li>
+                    <li><strong>Preferences:</strong> Your extension settings and preferences</li>
+                </ul>
+                
+                <h3>What We Do NOT Collect</h3>
+                <p>Visual Time Travel does NOT collect:</p>
+                <ul>
+                    <li>Personal information beyond what's necessary for the extension's functionality</li>
+                    <li>Form data, passwords, or sensitive information entered on websites</li>
+                    <li>Screenshots of pages loaded in incognito/private browsing mode</li>
+                    <li>Content from secure (HTTPS) pages that contain sensitive information</li>
                 </ul>
             </section>
 
-            <section id="information-use">
+            <section class="privacy-section">
                 <h2>How We Use Your Information</h2>
-                <p>The information collected by Visual Time Travel is used solely for the following purposes:</p>
+                <p>We use the information we collect to:</p>
                 <ul>
-                    <li>To create and display your visual browsing history timeline.</li>
-                    <li>To enable you to search and filter your browsing history.</li>
-                    <li>To allow you to revisit previously viewed pages.</li>
-                    <li>To improve the functionality and user experience of the extension.</li>
+                    <li>Provide and maintain the Visual Time Travel extension</li>
+                    <li>Create and display your visual browsing history timeline</li>
+                    <li>Enable search and filtering functionality within your timeline</li>
+                    <li>Improve and optimize the extension's performance and user experience</li>
+                    <li>Troubleshoot issues and respond to user support requests</li>
                 </ul>
                 
-                <p><span class="highlight">We do not:</span></p>
+                <p><strong>We do NOT:</strong></p>
                 <ul>
-                    <li>Sell or rent your data to third parties.</li>
-                    <li>Use your data for advertising purposes.</li>
-                    <li>Share your data with any third parties except as described in this Privacy Policy.</li>
+                    <li>Sell your personal information to third parties</li>
+                    <li>Use your data for advertising purposes</li>
+                    <li>Share your browsing history or screenshots with other users</li>
                 </ul>
             </section>
 
-            <section id="data-storage">
+            <section class="privacy-section">
                 <h2>Data Storage & Security</h2>
-                <p>Your data is stored in the following ways:</p>
-                <ul>
-                    <li><span class="highlight">Local Storage:</span> Your preferences and authentication information are stored locally in your browser using the browser's secure storage API.</li>
-                    <li><span class="highlight">Remote Storage:</span> Screenshots and associated metadata (URLs, titles, timestamps) are stored in a MongoDB database. This allows you to access your visual history across different devices and ensures your data is not lost if you uninstall the extension.</li>
-                </ul>
+                <p>Visual Time Travel offers two storage options:</p>
                 
-                <p>We take the security of your data seriously and implement the following measures:</p>
+                <div class="storage-option">
+                    <h3>Local Storage</h3>
+                    <p>By default, your screenshots and browsing data are stored locally on your device using the browser's storage API. This data never leaves your device and is not accessible to us or any third parties.</p>
+                </div>
+                
+                <div class="storage-option">
+                    <h3>Cloud Storage (Optional)</h3>
+                    <p>If you create an account, your screenshots and browsing data can be stored on our secure servers. This enables features like cross-device synchronization and backup. All data transmitted to our servers is encrypted using HTTPS, and we implement industry-standard security measures to protect your information.</p>
+                </div>
+                
+                <p>We use MongoDB for database storage and implement security best practices, including:</p>
                 <ul>
-                    <li>All communication with our servers is encrypted using HTTPS.</li>
-                    <li>Authentication is handled securely using JSON Web Tokens (JWT).</li>
-                    <li>Access to the database is restricted and protected by strong authentication mechanisms.</li>
-                    <li>Regular security audits and updates are performed to ensure the continued protection of your data.</li>
+                    <li>Data encryption in transit and at rest</li>
+                    <li>Secure authentication using JWT (JSON Web Tokens)</li>
+                    <li>Regular security audits and updates</li>
+                    <li>Limited access controls for our development team</li>
                 </ul>
             </section>
 
-            <section id="third-party">
+            <section class="privacy-section">
                 <h2>Third-Party Services</h2>
                 <p>Visual Time Travel uses the following third-party services:</p>
-                <ul>
-                    <li><span class="highlight">FreeImage.host:</span> We use this service to store the screenshots you capture. When a screenshot is taken, it is uploaded to FreeImage.host, and only the resulting URL is stored in our database. Please refer to <a href="https://freeimage.host/page/terms" target="_blank">FreeImage.host's Terms of Service</a> for more information about their data handling practices.</li>
-                    <li><span class="highlight">MongoDB Atlas:</span> We use MongoDB Atlas as our database service to store metadata about your browsing history. MongoDB Atlas implements industry-standard security measures to protect your data. You can learn more about their security practices in their <a href="https://www.mongodb.com/legal/privacy-policy" target="_blank">Privacy Policy</a>.</li>
-                </ul>
+                
+                <div class="third-party">
+                    <h3>FreeImage.host API</h3>
+                    <p>We use FreeImage.host for image hosting services. When you use cloud storage, your screenshots are uploaded to FreeImage.host. Please review their <a href="https://freeimage.host/page/terms" target="_blank">Terms of Service</a> and <a href="https://freeimage.host/page/privacy" target="_blank">Privacy Policy</a>.</p>
+                </div>
+                
+                <div class="third-party">
+                    <h3>Render.com</h3>
+                    <p>Our backend API is hosted on Render.com. They provide infrastructure services and do not have access to your personal data. You can review their <a href="https://render.com/privacy" target="_blank">Privacy Policy</a>.</p>
+                </div>
             </section>
 
-            <section id="user-rights">
+            <section class="privacy-section">
                 <h2>User Rights</h2>
-                <p>As a user of Visual Time Travel, you have the following rights regarding your data:</p>
+                <p>You have the following rights regarding your data:</p>
                 <ul>
-                    <li><span class="highlight">Access:</span> You can view all your captured screenshots and associated data through the extension's timeline interface.</li>
-                    <li><span class="highlight">Control:</span> You can toggle screenshot capturing on or off at any time through the extension's settings.</li>
-                    <li><span class="highlight">Account Deletion:</span> You can request the deletion of your account and all associated data by contacting us through GitHub issues.</li>
+                    <li><strong>Access:</strong> You can access your data through the extension's interface.</li>
+                    <li><strong>Deletion:</strong> You can delete individual screenshots or your entire history through the extension.</li>
+                    <li><strong>Account Deletion:</strong> If you have created an account, you can request account deletion, which will remove all your data from our servers.</li>
+                    <li><strong>Data Export:</strong> You can export your data through the extension's settings.</li>
+                    <li><strong>Opt-Out:</strong> You can disable screenshot capturing at any time through the extension's settings.</li>
                 </ul>
                 
-                <p>Please note that Visual Time Travel is designed to maintain a permanent record of your browsing history. There is no built-in functionality to delete individual history items, as this would defeat the purpose of the extension. If you need to clear your history, you will need to request account deletion.</p>
+                <p>To exercise these rights, please use the relevant features within the extension or contact us using the information provided in the "Contact Information" section.</p>
             </section>
 
-            <section id="policy-changes">
+            <section class="privacy-section">
                 <h2>Changes to This Privacy Policy</h2>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by:</p>
-                <ul>
-                    <li>Posting the new Privacy Policy on this page.</li>
-                    <li>Updating the "Last Updated" date at the top of this page.</li>
-                    <li>Displaying a notification within the extension when you open it after a policy update.</li>
-                </ul>
-                
-                <p>We recommend that you review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes through the extension's interface or via email if you have provided one.</p>
+                <p>We encourage you to review this Privacy Policy periodically to stay informed about how we are protecting your information.</p>
             </section>
 
-            <section id="contact">
+            <section class="privacy-section">
                 <h2>Contact Information</h2>
-                <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us through:</p>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us by:</p>
                 <ul>
-                    <li><a href="https://github.com/chirag127/Visual-Time-Travel2/issues" target="_blank">GitHub Issues</a> - Create a new issue in our repository with your question or concern.</li>
+                    <li>Opening an issue on our <a href="https://github.com/chirag127/Visual-Time-Travel2/issues" target="_blank">GitHub repository</a></li>
+                    <li>Emailing us at <a href="mailto:privacy@visualtimetravel.example.com">privacy@visualtimetravel.example.com</a></li>
                 </ul>
-                <p>We will make every effort to address your concerns promptly and thoroughly.</p>
+                <p>We will respond to your inquiry as soon as possible.</p>
             </section>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="index.html" class="footer-link">
-                    <i class="fas fa-home"></i> Home
-                </a>
-                <a href="https://github.com/chirag127/Visual-Time-Travel2" class="footer-link" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="extension/images/icon48.png" alt="Visual Time Travel Logo" class="footer-logo-img">
+                    <span>Visual Time Travel</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#installation">Installation</a>
+                    <a href="https://github.com/chirag127/Visual-Time-Travel2" target="_blank">GitHub</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2023 Visual Time Travel. All rights reserved.</p>
+                </div>
             </div>
-            <p class="copyright">&copy; 2023 Visual Time Travel. All rights reserved.</p>
         </div>
     </footer>
 </body>
