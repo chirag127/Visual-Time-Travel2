@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Time Travel - Timeline</title>
+  <link rel="stylesheet" href="../css/timeline.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Visual Time Travel</h1>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search by title, URL, or domain...">
+        <button id="search-btn" class="btn btn-primary">Search</button>
+        <button id="clear-search-btn" class="btn btn-secondary">Clear</button>
+      </div>
+    </header>
+    
+    <main>
+      <div class="filters">
+        <div class="filter-group">
+          <label for="date-filter">Filter by Date:</label>
+          <select id="date-filter">
+            <option value="all">All Time</option>
+            <option value="today">Today</option>
+            <option value="yesterday">Yesterday</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="domain-filter">Filter by Domain:</label>
+          <select id="domain-filter">
+            <option value="all">All Domains</option>
+            <!-- Domains will be populated dynamically -->
+          </select>
+        </div>
+      </div>
+      
+      <div id="timeline-container">
+        <!-- Timeline items will be populated dynamically -->
+        <div id="loading-indicator">Loading timeline...</div>
+        <div id="empty-state" class="hidden">No history items found.</div>
+      </div>
+      
+      <div id="pagination">
+        <button id="load-more-btn" class="btn btn-primary">Load More</button>
+      </div>
+    </main>
+    
+    <footer>
+      <p>Visual Time Travel &copy; 2023</p>
+    </footer>
+  </div>
+  
+  <script type="module" src="../js/timeline.js"></script>
+</body>
+</html>
