@@ -44,7 +44,7 @@ async function loadPreferences() {
         chrome.storage.local.get(["preferences"], (result) => {
             const defaultPreferences = {
                 isCapturingEnabled: true,
-                retentionDays: 30,
+                // Removed retentionDays property
             };
 
             resolve(result.preferences || defaultPreferences);
