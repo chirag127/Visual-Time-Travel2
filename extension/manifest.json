@@ -1,14 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Visual Time Travel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Capture and organize a visual timeline of your browsing history",
   "permissions": [
     "tabs",
     "activeTab",
     "storage",
-    "scripting",
-    "history",
     "webNavigation"
   ],
   "host_permissions": [
