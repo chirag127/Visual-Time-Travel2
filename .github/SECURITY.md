@@ -2,43 +2,53 @@
 
 ## Reporting Security Vulnerabilities
 
-We take security seriously. If you discover a security vulnerability in this project, we appreciate your help in disclosing it to us responsibly. Please do not report security vulnerabilities through public issues.
+We take security seriously. If you discover a security vulnerability in this project, please report it to us immediately.  Do not disclose the vulnerability publicly until we have had a chance to address it.
 
-To report a security vulnerability, please send an email to [Your Email Address or Security Contact Here]. Please include the following information:
+Please follow these steps:
 
-*   **Vulnerability Details:** A clear description of the vulnerability, including the component affected and how it can be exploited.
-*   **Steps to Reproduce:** Detailed steps to reproduce the vulnerability.
-*   **Impact:** The potential impact of the vulnerability (e.g., data breach, denial of service).
-*   **Proof of Concept (Optional):** If possible, provide a proof of concept (PoC) or exploit code.
+1.  **Email:** Send an email to [Your Contact Email or Security Team Email Address] with the subject line "Security Vulnerability Report: [Project Name]"
+2.  **Details:** In your email, please include:
+    *   A clear description of the vulnerability.
+    *   Steps to reproduce the vulnerability.
+    *   The impact of the vulnerability (e.g., data breach, denial of service).
+    *   Any suggested remediation.
+3.  **Confidentiality:** Please keep the details of the vulnerability confidential until we have confirmed a fix and you are given permission to disclose it.
 
-We will acknowledge your report within 24-48 hours. We will then investigate the vulnerability and work on a fix as quickly as possible. We will keep you informed of our progress.
+We will acknowledge your report within 24-48 hours. We will then work to:
 
-## Security Best Practices
+*   Confirm the vulnerability.
+*   Identify a fix.
+*   Test the fix.
+*   Release a patched version of the project.
 
-This project follows security best practices to protect users and their data. These include:
-
-*   **Input Validation:** All user inputs are validated and sanitized to prevent injection attacks (e.g., Cross-Site Scripting (XSS), SQL Injection).
-*   **Authentication and Authorization:** Secure authentication and authorization mechanisms are implemented to protect user accounts and data.
-*   **Data Encryption:** Sensitive data is encrypted at rest and in transit.
-*   **Dependency Management:** Dependencies are regularly updated to address security vulnerabilities.
-*   **Secure Coding Practices:** Code is written following secure coding practices to prevent common security flaws.
-*   **Regular Security Audits:** Regular security audits are conducted to identify and address potential vulnerabilities.
-*   **Least Privilege:** Access controls are implemented to ensure users and systems have only the necessary permissions.
-*   **SBOM (Software Bill of Materials):** An SBOM is generated for each build to track dependencies and their vulnerabilities.
+We aim to address security vulnerabilities promptly. Our goal is to provide a secure and reliable platform for all users.
 
 ## Supported Versions
 
-We are committed to providing a secure and reliable experience. Security updates are provided for the latest stable version of the project.
+Use our project with the latest version. Older versions may not receive security updates.
 
-## Security Response Team
+## Security Best Practices
 
-The project maintainers are responsible for addressing security vulnerabilities. The security response team includes:
+We adhere to security best practices, including but not limited to:
 
-*   [Your Name/Team Name]
-*   [Email Address]
+*   **Input Validation:** All user inputs are validated to prevent injection attacks (SQL injection, XSS, etc.).
+*   **Authentication and Authorization:** Secure authentication and authorization mechanisms are in place to protect user data and resources.
+*   **Encryption:** Sensitive data is encrypted both in transit and at rest.
+*   **Regular Security Audits:** We conduct regular security audits to identify and address potential vulnerabilities.
+*   **Dependency Management:** Dependencies are regularly updated to address known vulnerabilities.
+*   **Least Privilege:** Systems are designed using the principle of least privilege, granting only the necessary permissions.
 
-## Disclosure Policy
+## Security Tools and Practices
 
-We will address security vulnerabilities as quickly as possible. We will notify you when the vulnerability is fixed. We will also disclose the vulnerability publicly after a reasonable period (e.g., 30-90 days), or as soon as a fix is available.
+*   **Static Analysis:** Use of static analysis tools to identify potential security flaws during code review and CI/CD pipelines.
+*   **Dynamic Analysis:** Dynamic analysis and penetration testing are done during the development and before major releases.
+*   **Automated Security Scans:** Automated security scans are integrated into the CI/CD pipeline to detect vulnerabilities.
 
-We appreciate your help in making this project secure.
+## Responsible Disclosure
+
+We appreciate the efforts of security researchers.  If you report a vulnerability responsibly, we will:
+
+*   Acknowledge your contribution.
+*   Give credit for the discovery in our release notes (if you wish).
+
+Thank you for helping us keep our project secure!
