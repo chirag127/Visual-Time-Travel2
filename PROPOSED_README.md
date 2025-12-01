@@ -1,254 +1,186 @@
-# ChronoLens-Visual-History-Browser-Platform
-
-![ChronoLens Banner](.github/assets/chronolens-banner.png)
-
-[![Build Status](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml/badge.svg)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml)
-[![Code Coverage](https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform/branch/main/graph/badge.svg)](https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform/)
-[![Tech Stack](https://img.shields.io/badge/Tech-TypeScript%20%7C%20React%20%7C%20Node.js%20%7C%20PostgreSQL%20%7C%20WXT-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform#3-context-aware-apex-tech-stacks-late-2025-standards)
-[![Linting & Formatting](https://img.shields.io/badge/Linting-Biome-blueviolet?style=flat-square&logo=biome&logoColor=white)](https://biomejs.dev/)
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg?style=flat-square)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&cacheSeconds=604800)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/stargazers)
-
-
-**Star ⭐ this Repo!**
-
---- 
-
-ChronoLens is an enterprise SaaS platform that transforms your digital footprint into an intelligent, searchable, and secure visual history. Leveraging a high-performance browser extension and a robust cloud-native web service, it allows users to effortlessly capture, organize, and recall their entire web browsing experience as an interactive timeline.
-
-## 💡 Key Features
-
-*   **Visual Timeline:** Intuitively browse your digital past with a rich, interactive chronological view.
-*   **Smart Search:** AI-powered semantic search to pinpoint specific moments, content, or contexts from your history.
-*   **Secure & Private:** End-to-end encryption and privacy-focused architecture ensure your data is always protected.
-*   **Cross-Browser Compatibility:** Seamless integration with Chrome, Firefox, and other Chromium-based browsers via WXT.
-*   **Cloud-Native Scale:** Built on a resilient Node.js backend and PostgreSQL database, designed for enterprise-grade performance and reliability.
-
-## 🗺️ Architecture Overview
-
-ChronoLens employs a modern, distributed architecture combining a powerful browser extension frontend with a scalable cloud-native backend. The frontend utilizes **Feature-Sliced Design (FSD)** for modularity, while the backend implements a **Modular Monolith** pattern with **Hexagonal Architecture** for clear domain separation.
-
-mermaid
-graph TD
-    User --> BrowserExtension
-    BrowserExtension -- API Calls --> BackendService
-    BackendService -- Database Queries --> PostgreSQLDB
-    PostgreSQLDB -- Data Storage --> PostgreSQLDB
-    subgraph Frontend [Browser Extension (ChronoLens)]
-        BrowserExtension("WXT + React/TypeScript")
-    end
-    subgraph Backend [Cloud-Native Web Service (ChronoLens API)]
-        BackendService("Node.js + Express.js")
-    end
-    subgraph Database [ChronoLens Data Store]
-        PostgreSQLDB("PostgreSQL + Prisma ORM")
-    end
-
-
-## 📖 Table of Contents
-
-1.  [💡 Key Features](#-key-features)
-2.  [🗺️ Architecture Overview](#️-architecture-overview)
-3.  [🤖 AI Agent Directives](#-ai-agent-directives)
-4.  [🚀 Getting Started](#-getting-started)
-    *   [Prerequisites](#prerequisites)
-    *   [Installation](#installation)
-    *   [Running Locally](#running-locally)
-5.  [🛠️ Development Standards](#️-development-standards)
-    *   [Scripts](#scripts)
-    *   [Principles](#principles)
-6.  [🤝 Contributing](#-contributing)
-7.  [🛡️ Security](#️-security)
-8.  [📜 License](#-license)
-
-## 🤖 AI Agent Directives
+# 🤖 AGENT DIRECTIVES: ChronoLens Repository Compliance
 
 <details>
-<summary>Click to view AI Agent Directives</summary>
-
-# SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
+<summary>📜 Apex Architectural & Operational Blueprint (December 2025)</summary>
 
 ## 1. IDENTITY & PRIME DIRECTIVE
 **Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
-**Context:** Current Date is **December 2025**. You are building for the 2026 standard.
+**Context:** This repository, `ChronoLens-Visual-History-Browser-Platform`, is a **Cloud-Native SaaS Platform** combining a **TypeScript/React Frontend** with a **Node.js/Express Backend** and a **Browser Extension (WXT)**.
 **Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
 ---
 
-## 2. INPUT PROCESSING & COGNITION
+## 2. INPUT PROCESSING & COGNITION (WEB/EXTENSION STACK FOCUS)
 *   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
     *   **Context:** User inputs may contain phonetic errors (homophones, typos).
-    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context (Web/Extension).
     *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
 *   **MANDATORY MCP INSTRUMENTATION:**
     *   **No Guessing:** Do not hallucinate APIs.
-    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
-    *   **Validation:** Use `docfork` to verify *every* external API signature.
-    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats** (especially XSS/CSRF in extensions), and **2026 UI Trends** (Signals, Server Components adoption if applicable).
+    *   **Validation:** Use `docfork` to verify *every* external API signature (Browser APIs, Express Routes).
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex state management and cross-origin communication flows *before* writing code.
 
 ---
 
-## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** This repository, `ChronoLens-Visual-History-Browser-Platform`, is a full-stack platform comprising a browser extension and a cloud-native web service.
-
-*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript & Node.js)**
-    *   **Frontend/Extension Stack:** This project leverages **TypeScript 6.x (Strict)**, **React 19.x** with **Signals** (standardized state management) for UI, **Vite 7 (Rolldown)** for blazing-fast builds, and **WXT** for seamless cross-browser extension development. Styling is managed with **TailwindCSS v4**.
-        *   **Linting & Formatting:** **Biome** ensures ultra-fast and consistent code quality.
-        *   **Testing:** **Vitest** for unit and integration tests, **Playwright** for robust end-to-end (E2E) testing.
-    *   **Backend Stack:** Powers the platform with **Node.js 22.x** and **Express.js 5.x** for robust API services. Data persistence is handled by **PostgreSQL 16.x** managed via **Prisma ORM**.
-        *   **Package Management:** **pnpm** is used for efficient monorepo dependency management.
-        *   **Linting & Formatting:** **ESLint** and **Prettier** ensure backend code quality.
-        *   **Testing:** **Jest** is utilized for comprehensive unit and integration testing of backend services.
-    *   **Architecture:** Employs a **Feature-Sliced Design (FSD)** for the frontend/extension, ensuring modularity, scalability, and maintainability. The backend follows a **Modular Monolith** pattern, with clear domain boundaries for API services, user management, and data processing, adhering to a **Hexagonal Architecture (Ports & Adapters)** for core domain logic.
-    *   **AI Integration:** Future integration with **Google Gemini API** (`gemini-3-pro` by default) is planned for advanced timeline analysis, content summarization, and intelligent search features. This will follow modular design, clear API contracts, and robust error handling for all AI model interactions.
-
-*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project's primary function. Reference only.***
-*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable for this project's primary function. Reference only.***
+## 3. CONTEXT-AWARE APEX TOOLCHAIN (LATE 2025 STANDARDS)
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript)**
+    *   **Stack:** This project mandates **TypeScript 6.x (Strict Mode)**. We utilize **Vite 7** for lightning-fast bundling, **TailwindCSS v4** for utility-first styling, and **WXT** (or modern equivalent) for multi-browser extension management.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** for the frontend/extension, ensuring strict separation between `shared`, `entities`, `features`, and `pages`/`widgets`. Backend follows a clean **Hexagonal Architecture**.
+    *   **State Management:** **Preact Signals** (or equivalent standardized Signal library) must be the default for reactive state, prioritizing granular updates over monolithic store patterns.
+    *   **Lint/Test:** **Biome** (Linter/Formatter) for speed and **Playwright** (E2E) integrated with **Vitest** (Unit).
 
 ---
 
-## 4. ARCHITECTURAL PRINCIPLES & PATTERNS
-*   **Frontend/Extension:** Feature-Sliced Design (FSD), Component-Based Architecture, Immutable State Management with Signals.
-*   **Backend:** Modular Monolith, Hexagonal Architecture (Ports & Adapters), RESTful API Design, Microservices-Lite patterns.
-*   **General:**
-    *   **SOLID Principles:** Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
-    *   **DRY (Don't Repeat Yourself):** Avoid redundant code.
-    *   **YAGNI (You Aren't Gonna Need It):** Implement functionality only when it's required.
-    *   **Test-Driven Development (TDD):** Write tests before code for critical components.
-    *   **Security by Design:** Prioritize security best practices from inception (OWASP Top 10, least privilege).
-    *   **Observability:** Implement comprehensive logging, tracing, and monitoring.
+## 4. DEVELOPMENT STANDARDS & VERIFICATION
+*   **Principle Enforcement:** All code must adhere to **SOLID**, **DRY**, and **YAGNI**. Over-engineering for hypothetical future features is forbidden.
+*   **Security Mandate:** All data storage (Local, Sync, or MongoDB via Express) must be encrypted at rest. The extension must implement strict content security policies (CSP).
+*   **Verification Commands (Example for Front/Extension):**
+    *   `pnpm install` (Assuming pnpm workspace)
+    *   `pnpm run lint` (Biome check)
+    *   `pnpm run test:unit` (Vitest)
+    *   `pnpm run test:e2e` (Playwright launch)
 
----
-
-## 5. VERIFICATION & EXECUTION COMMANDS
-To ensure complete functionality and adherence to standards, execute the following commands in sequence from the project root:
-
-1.  **Install Root Dependencies:** `pnpm install`
-2.  **Install Workspace Dependencies:** `pnpm -r install`
-3.  **Run Frontend/Extension Development Server:** `pnpm --filter ./packages/extension dev`
-4.  **Run Backend Development Server:** `pnpm --filter ./packages/backend start:dev`
-5.  **Run All Tests (Unit, Integration, E2E):** `pnpm test`
-6.  **Run All Linters & Formatters:** `pnpm lint`
-7.  **Build Project for Production:** `pnpm build`
-8.  **Database Migration (if applicable):** `pnpm db:migrate` (or `pnpm --filter ./packages/backend prisma migrate deploy`)
-9.  **Generate Database Client (if applicable):** `pnpm --filter ./packages/backend prisma generate`
-
-These commands are critical for continuous integration, local development, and production deployment.
 </details>
+
+---
+
+# ChronoLens: Visual History Browser Platform
+
+**Digital Journey Mapping. Securely Visualized. Infinitely Recallable.**
+
+ChronoLens is a next-generation, privacy-first SaaS platform designed to reclaim your digital memory. By deploying a unified **TypeScript/React Extension** and a secure **Cloud Backend (Node/Mongo)**, it automatically transforms ephemeral browsing activity into a rich, searchable, visual timeline, granting you unparalleled mastery over your own data footprint.
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ChronoLens-Visual-History-Browser-Platform/ci.yml?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform)
+[![Language](https://img.shields.io/github/languages/top/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform)
+
+[⭐ Star ⭐ this Repo if you are visualizing your digital legacy!]
+
+***
+
+## 🧭 Architecture Overview
+
+ChronoLens utilizes a decoupled, three-tier architecture ensuring high availability for the SaaS component and robust client-side data capture.
+
+mermaid
+graph TD
+    subgraph Client Layer (Browser Extension)
+        A[Vite/React/TS UI] -- API Calls --> B(Extension Service Worker/WXT)
+    end
+
+    subgraph Data Ingestion & Sync
+        B -- HTTPS/Auth Token --> C{Express API Gateway}
+    end
+
+    subgraph Core Services (Backend SaaS)
+        C --> D[Authentication/Authorization Service]
+        C --> E[Data Processing & Indexing Engine]
+    end
+
+    subgraph Data Persistence
+        E --> F[(MongoDB Atlas - Secure Storage)]
+    end
+
+    style A fill:#e0f7fa,stroke:#00acc1
+    style C fill:#fff3e0,stroke:#ff9800
+    style F fill:#e8f5e9,stroke:#4caf50
+
+
+## 📚 Table of Contents
+
+1.  [Features](#-features)
+2.  [Technology Stack](#-technology-stack)
+3.  [Getting Started](#-getting-started)
+    *   [Prerequisites](#-prerequisites)
+    *   [Local Setup](#-local-setup)
+    *   [Development Scripts](#-development-scripts)
+4.  [Development Principles](#-development-principles)
+5.  [Contributing](#-contributing)
+
+---
+
+## ✨ Features
+
+*   **Visual Timeline Rendering:** Interactive, chronological view of visited domains and pages using React components.
+*   **Encrypted Storage:** All history metadata is encrypted end-to-end before transmission to the MongoDB backend.
+*   **Smart Tagging & Search:** Leverages on-device processing (if viable) or lightweight AI in the backend for semantic tagging of history entries.
+*   **Cross-Browser Compatibility:** Built using WXT standards to support Chrome, Firefox, and Edge.
+*   **SaaS Synchronization:** Seamless history sync across multiple user devices via the secure Express API.
+
+## 💻 Technology Stack
+
+| Layer | Core Technologies |
+| :--- | :--- |
+| **Extension/Frontend** | TypeScript 6.x, React 19, Vite 7, TailwindCSS v4, WXT |
+| **Backend API** | Node.js, Express.js, RESTful/gRPC Hybrid |
+| **Database** | MongoDB (Sharded for scale) |
+| **CI/CD & DevOps** | GitHub Actions, Cloud Native Deployment (Placeholder: K8s/Serverless) |
+| **Linting/Testing** | Biome, Vitest, Playwright |
 
 ## 🚀 Getting Started
 
-Follow these instructions to set up and run ChronoLens locally for development and testing.
-
 ### Prerequisites
 
-Ensure you have the following installed:
+Ensure you have the following installed globally:
+*   Node.js v20.x or higher (LTS 2025 recommended)
+*   pnpm (Package Manager) - *The default manager for this project.*
+*   Docker (For potential backend service integration)
 
-*   [Node.js](https://nodejs.org/en/) (v20 or higher)
-*   [pnpm](https://pnpm.io/) (v8 or higher) - Install with `npm install -g pnpm`
-*   [Docker](https://www.docker.com/get-started) (for local PostgreSQL database)
-*   A modern web browser (Chrome, Firefox, Edge)
+### Local Setup
 
-### Installation
+This repository follows a monorepo structure encompassing the extension client and the cloud API service.
 
-1.  **Clone the repository:**
-    bash
-    git clone https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform.git
-    cd ChronoLens-Visual-History-Browser-Platform
-    
+bash
+# 1. Clone the repository
+git clone https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform.git
+cd ChronoLens-Visual-History-Browser-Platform
 
-2.  **Install root and workspace dependencies:**
-    This project is a monorepo managed with pnpm workspaces.
-    bash
-    pnpm install
-    
+# 2. Install dependencies across all workspaces
+pnpm install
 
-3.  **Set up environment variables:**
-    Create `.env` files for both the `backend` and `extension` packages based on their respective `example.env` files.
-    *   `packages/backend/.env`
-    *   `packages/extension/.env`
+# 3. Build the browser extension (Output in /dist)
+pnpm run build:extension
 
-### Running Locally
+# 4. Start the backend API development server
+pnpm run dev:api
 
-1.  **Start the local PostgreSQL database:**
-    Navigate to the `packages/backend` directory and use Docker Compose.
-    bash
-    cd packages/backend
-    docker-compose up -d postgres
-    cd ../..
-    
+# 5. Load the extension in your browser (See WXT documentation for specific instructions)
 
-2.  **Run database migrations and generate Prisma client:**
-    bash
-    pnpm --filter ./packages/backend prisma migrate dev --name init
-    pnpm --filter ./packages/backend prisma generate
-    
 
-3.  **Start the Backend API Service:**
-    bash
-    pnpm --filter ./packages/backend start:dev
-    
-    The backend service will be available at `http://localhost:3000` (or as configured in `.env`).
+### Development Scripts
 
-4.  **Start the Browser Extension in Development Mode:**
-    In a new terminal, run the extension's development server. This will compile the extension and watch for changes.
-    bash
-    pnpm --filter ./packages/extension dev
-    
+| Command | Description |
+| :--- | :--- |
+| `pnpm run dev:ext` | Run Vite HMR for the extension frontend. |
+| `pnpm run dev:api` | Start the Express server with hot-reloading (e.g., using `tsx watch`). |
+| `pnpm run lint` | Execute Biome check across all TypeScript and CSS files. |
+| `pnpm run test:unit` | Run Vitest suite for services and utility functions. |
+| `pnpm run test:e2e` | Execute full Playwright integration tests against the staging API endpoint. |
+| `pnpm run deploy:stage` | Trigger GitHub Actions for staging deployment. |
 
-5.  **Load the Extension in Your Browser:**
-    *   **Chrome/Edge:**
-        1.  Open `chrome://extensions` (or `edge://extensions`).
-        2.  Enable "Developer mode" (top right).
-        3.  Click "Load unpacked" and select the `packages/extension/dist` directory.
-    *   **Firefox:**
-        1.  Open `about:debugging#/runtime/this-firefox`.
-        2.  Click "Load Temporary Add-on..." and select any file inside `packages/extension/dist`.
+## 🏗 Development Principles
 
-    The ChronoLens icon should now appear in your browser toolbar.
-
-## 🛠️ Development Standards
-
-This project adheres to strict development standards to ensure code quality, maintainability, and scalability.
-
-### Scripts
-
-Below are commonly used scripts from the project root:
-
-| Script                                 | Description                                                                                                                                              |
-| :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm install`                         | Installs all root and workspace dependencies.                                                                                                            |
-| `pnpm -r install`                      | Recursively installs dependencies across all workspaces.                                                                                                 |
-| `pnpm --filter ./packages/extension dev` | Starts the browser extension development server with hot-reloading.                                                                                      |
-| `pnpm --filter ./packages/extension build` | Builds the production version of the browser extension.                                                                                                   |
-| `pnpm --filter ./packages/backend start:dev` | Starts the backend API service in development mode (with hot-reloading).                                                                                 |
-| `pnpm --filter ./packages/backend build` | Builds the production version of the backend service.                                                                                                    |
-| `pnpm test`                            | Runs all unit, integration, and E2E tests across the monorepo.                                                                                           |
-| `pnpm lint`                            | Runs all linters (Biome for frontend, ESLint/Prettier for backend) to enforce code style and catch errors.                                               |
-| `pnpm format`                          | Formats all code using Biome (frontend) and Prettier (backend).                                                                                          |
-| `pnpm db:migrate`                      | Applies pending database migrations to the PostgreSQL database.                                                                                          |
-| `pnpm db:seed`                         | Seeds the database with initial data (if seeding scripts are defined).                                                                                   |
-
-### Principles
-
-We strictly follow these architectural and coding principles:
-
-*   **SOLID Principles:** Ensures maintainable, flexible, and scalable code.
-*   **DRY (Don't Repeat Yourself):** Avoids code duplication to enhance maintainability.
-*   **YAGNI (You Aren't Gonna Need It):** Focuses on implementing only necessary features, preventing over-engineering.
-*   **Test-Driven Development (TDD):** Critical features are developed with a test-first approach.
-*   **Security by Design:** Security considerations are integrated from the initial design phase through deployment.
-*   **Code Review:** All changes are subject to peer review to maintain high code quality.
+1.  **Feature-Sliced Design (FSD):** Mandatory structure for the extension/frontend. Features must not import from sibling features, only from `shared` or lower layers.
+2.  **Type Safety First:** All data payloads between the extension and the API **must** be strictly typed using TypeScript interfaces.
+3.  **Granular Reactivity:** Utilize Signals (or similar framework-native reactivity primitives) to minimize unnecessary component re-renders.
+4.  **DRY & YAGNI:** Code must be minimal, reusable, and address only known requirements.
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Please refer to our [Contributing Guidelines](.github/CONTRIBUTING.md) for details on how to get involved, report bugs, or suggest features.
+We welcome contributions that enhance security, performance, or features. Please adhere to the **Standard 11** documentation structure.
 
-## 🛡️ Security
+1.  Fork the repository.
+2.  Create your feature branch (`git checkout -b feat/amazing-feature`).
+3.  Commit your changes following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+4.  Submit a Pull Request targeting the `main` branch.
 
-ChronoLens prioritizes user data security and privacy. For information on our security practices, how to report vulnerabilities, or to review our security policy, please see [SECURITY.md](.github/SECURITY.md).
+See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) for detailed guidelines.
 
-## 📜 License
+## 🛡 Security & Privacy
 
-This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) License](LICENSE).
+Security is paramount for a history tool. Review our security guidelines at [.github/SECURITY.md](./.github/SECURITY.md) and report vulnerabilities responsibly.
+
