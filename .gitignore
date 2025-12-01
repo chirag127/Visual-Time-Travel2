@@ -1,61 +1,50 @@
-# Apex Technical Authority Standard .gitignore
+# Node.js / npm
 
-# Node / npm / Yarn / pnpm
-npm-debug.log.*
-npm-shrinkwrap.json
-yarn-error.log.*
-.yarnrc.yml
+npm-debug.log*
+npm-error.log*
+yarn-error.log*
 node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpmfile.js
+
+# Vite
+.vite/
 dist/
-build/
 *.local
 
-# Vite / Webpack / Bundlers
-.vite/
-.next/
-.nuxt/
-output/
+# Build artifacts
+*.log
+*.swp
+*.bak
+*.tmp
 
-# IDE / Editor Configuration
+# IDE / Editor specific
 .vscode/
 .idea/
-*.sublime-workspace
-*.sublime-project
+*.iml
 .DS_Store
 Thumbs.db
 
-# Testing Frameworks
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Testing
 coverage/
-.nyc_output/
-vitest.html
+*.test.js.snap
+*.spec.js.snap
+*.vitest.log
 
-# OS Generated Files
-.env.local
+# Other
+.env
 .env.*
-*.swp
-*~
-
-# Tauri Specific
-.tauri/
-
-# Logs
-*.log
-
-# Secrets / Sensitive Data (ENSURE THESE ARE NEVER COMMITTED)
-# Example: If you have a .env file for local development, add it here.
-# DO NOT commit any files containing API keys, passwords, or other secrets.
-
-# Build artifacts (can be redundant with above, but good for clarity)
-*.o
-*.a
-*.so
-*.dll
-*.exe
-*.lib
-
-# Miscellaneous
-__pycache__/
-*.pyc
-.pytest_cache/
-.ruff_cache/
-.biome_cache/
+!.env.example
+*.env
+*.env.*
+!.env.example
+logs/
+*.pid
+*.pid.process
+*.pid.lock
