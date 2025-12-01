@@ -1,50 +1,15 @@
-# Node.js / npm
-
-npm-debug.log*
-npm-error.log*
-yarn-error.log*
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-.pnpmfile.js
-
-# Vite
-.vite/
 dist/
-*.local
-
-# Build artifacts
-*.log
-*.swp
-*.bak
-*.tmp
-
-# IDE / Editor specific
-.vscode/
-.idea/
-*.iml
+build/
 .DS_Store
-Thumbs.db
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Testing
-coverage/
-*.test.js.snap
-*.spec.js.snap
-*.vitest.log
-
-# Other
 .env
-.env.*
-!.env.example
-*.env
-*.env.*
-!.env.example
-logs/
-*.pid
-*.pid.process
-*.pid.lock
+.env.local
+.cache/
+coverage/
+*.log
+*.tmp
+*.swp
+.idea/
+.vscode/
+.eslintcache
+!.github/workflows/ci.yml
