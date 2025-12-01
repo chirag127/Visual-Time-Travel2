@@ -31,11 +31,13 @@
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (`package.json`, `Cargo.toml`, `pyproject.toml`) and apply the corresponding **Apex Toolchain**.
-* **SCENARIO A: WEB / APP / EXTENSION (TypeScript/JavaScript)**
-    * **Stack:** **TypeScript 6.x / JavaScript (ESM)**, **Vite 7** (Rolldown), **Tauri v2.x** (Native), **WXT** (Extensions).
-    * **State:** **Signals** (Standardized).
-    * **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
+**Directives:** This project is identified as a **Browser Extension / Web Platform**. Adhering to the Apex Toolchain standards for modern web development, the mandated stack is:
+
+*   **SCENARIO A: WEB / APP / EXTENSION (TypeScript)**
+    *   **Stack:** **TypeScript 6.x** (Strict), **Vite 7** (Rolldown), **WXT** (for Browser Extensions).
+    *   **State:** **Signals** (Standardized).
+    *   **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
+    *   **Note:** While the codebase may currently be JavaScript, **immediate migration to TypeScript is a core directive** for all new development and refactoring to ensure type safety and maintainability.
 * **SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go)**
     * **Stack:** **Rust 1.8x** (Cargo) or **Go 1.2x**.
     * **Lint:** **Clippy** / **GolangCI-Lint**.
@@ -140,11 +142,11 @@
 
 ## 11. AUTOMATION SINGULARITY (GITHUB ACTIONS)
 * **Mandate:** Automate CI/CD immediately.
-* **Workflows:** 
-    1. **Integrity:** Lint + Test on Push.
-    2. **Security:** Audit dependencies + SBOM.
-    3. **Release:** Semantic Versioning + Artifact Upload.
-    4. **Deps:** Auto-merge non-breaking updates.
+* **Workflows:**
+    1.  **Integrity:** Lint + Test on Push.
+    2.  **Security:** Audit dependencies + SBOM.
+    3.  **Release:** Semantic Versioning + Artifact Upload.
+    4.  **Deps:** Auto-merge non-breaking updates.
 
 ---
 
