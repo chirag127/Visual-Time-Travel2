@@ -1,46 +1,64 @@
-# Pull Request Template
+--- 
+name: Feature / Fix / Refactor Pull Request
+about: High-velocity contribution template for the ChronoLens platform.
+title: "[TYPE]: Concise and descriptive title (e.g., [FEAT]: Implement visual timeline component)"
+labels: ['needs review', 'priority: medium']
+assignees: ['chirag127']
+---
 
-## 🚀 Feature/Fix Description
+## 🚀 High-Level Summary
 
-Please provide a concise and clear description of the changes introduced in this pull request. What problem does it solve or what new functionality does it add?
+Please provide a brief, high-impact summary of this change. Why is it needed, and what problem does it solve?
 
-## 📝 Related Issues
+## 🔗 Related Issues
 
-Link any relevant GitHub issues that this PR addresses (e.g., `Fixes #123`, `Closes #456`).
+Closes # (If applicable, link to the related issue)
 
-## 🎯 Changes
+## 📋 Pre-Merge Checklist (Mandatory Gates)
 
-List the main changes made:
+Reviewers: Please verify that all checks below are marked by the author.
 
-*   [ ] Added new feature: `[Description]`
-*   [ ] Fixed a bug: `[Description]`
-*   [ ] Refactored code: `[Description]`
-*   [ ] Updated documentation: `[Description]`
-*   [ ] Added tests: `[Description]`
-*   [ ] Chore: `[Description]`
+### Code Quality & Standards
+- [ ] **Code Alignment:** All changes adhere to the Architectural Guidelines defined in `AGENTS.md` (SOLID, FSD Principles).
+- [ ] **Linting & Formatting:** `pnpm lint` (or equivalent `biome check --apply-unsafe`) has been run and passed successfully.
+- [ ] **Type Safety:** All TypeScript files are strictly typed, and no implicit `any` usage is introduced.
+- [ ] **Performance:** Changes avoid introducing complexity that impacts the critical rendering path or extension startup time.
+- [ ] **Error Handling:** Robust try/catch or promise rejection handling is implemented for all I/O, API, and asynchronous operations (client and server).
 
-## 💡 Motivation & Context
+### Testing & Verification
+- [ ] **Unit Tests:** New or updated functionality is covered by appropriate Vitest/Jest unit tests (Code Coverage maintained or increased).
+- [ ] **E2E/Integration Tests:** Relevant Playwright tests (especially for core user flows in the extension) have been updated or added.
+- [ ] **Local Verification:** Changes have been tested locally on the target browsers (Chrome/Firefox) and the Node.js backend environment.
+- [ ] **Security:** No secrets or credentials are hardcoded, and input validation is implemented to prevent XSS/Injection.
 
-Why were these changes necessary? Explain the business or technical reasoning behind this PR.
+### Documentation & Artifacts
+- [ ] **JSDoc/TSDoc:** Public APIs, exported functions, and complex logic blocks are clearly documented.
+- [ ] **README/Docs:** If this PR changes configuration or public APIs, relevant documentation (e.g., API routes, setup instructions) has been updated.
 
-## 📸 Screenshots/Recordings (if applicable)
+## ⚙️ Architectural Impact Analysis
 
-If your changes affect the UI, please include screenshots or a short recording demonstrating the new behavior or fix.
+### Components Affected (e.g., `extension/src/features/timeline`, `server/api/history`)
+*   [List affected files/modules]
 
-## ✅ Checklist
+### Data Model Changes (If applicable)
+*   [ ] MongoDB Schema updated? (Specify collection and fields)
+*   [ ] State management changes (e.g., new global state in React)?
 
-Before submitting your pull request, please ensure you have:
+## 🔎 Guidance for Reviewers
 
-*   [ ] **Code Quality:** Adhered to Apex technical standards (SOLID, DRY, KISS, CQS).
-*   [ ] **Linting & Formatting:** Ran `biome check --apply` (or equivalent for the project stack) and the code is clean.
-*   [ ] **Testing:** All tests pass (`vitest` or `pytest`, etc.).
-*   [ ] **New Tests:** Added comprehensive tests for new functionality or bug fixes.
-*   [ ] **Documentation:** Updated `README.md` and other relevant documentation.
-*   [ ] **CI/CD:** Verified that GitHub Actions workflows pass.
-*   [ ] **Security:** Reviewed for potential security vulnerabilities (OWASP Top 10 2025).
-*   [ ] **Conventional Commits:** Used the correct commit message format (e.g., `feat:`, `fix:`).
-*   [ ] **Atomic Commit:** The final commit is clean and reflects the completed work.
+Please focus your review primarily on these areas:
 
-## 🌟 Star ⭐ This Repo
+1.  **TypeScript Logic:** Verify strict type adherence in the WXT extension service workers.
+2.  **API Contract:** Ensure the client-server interaction adheres to the defined REST contracts.
+3.  **FSD Compliance:** Check if the changes follow the Feature-Sliced Design structure for the frontend components.
+4.  **Security:** Scrutinize database queries and input sanitization on the Node.js backend.
 
-If you found this project helpful, please consider starring the repository to show your support!
+---
+### CI/CD Status Reference
+
+| Status | Link |
+| :--- | :--- |
+| **Build Pipeline** | [CI Workflow Status](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml) |
+| **Code Coverage** | [Latest Coverage Report](https://app.codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform) |
+
+*Thank you for contributing to ChronoLens!*
