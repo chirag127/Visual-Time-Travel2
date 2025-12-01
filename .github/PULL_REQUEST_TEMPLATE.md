@@ -1,47 +1,46 @@
-## Pull Request Checklist
+# Pull Request Template
 
-Before submitting this pull request, make sure to:
+## 🚀 Feature/Fix Description
 
-- [ ] Read and followed the [CONTRIBUTING.md](/.github/CONTRIBUTING.md) guidelines.
-- [ ] Ran `biome check --apply` to ensure code style and formatting.
-- [ ] Added or updated relevant tests to maintain code coverage.
-- [ ] Verified that all tests pass successfully.
-- [ ] Included clear and concise commit messages following conventional commits.
-- [ ] Updated documentation (if applicable) to reflect the changes.
-- [ ] Provided a clear description of the changes and their purpose.
-- [ ] Linked any related issues or pull requests.
+Please provide a concise and clear description of the changes introduced in this pull request. What problem does it solve or what new functionality does it add?
 
-### Description
+## 📝 Related Issues
 
-<!-- Provide a detailed description of the changes introduced by this pull request. Explain the problem being solved, the approach taken, and any relevant context. -->
+Link any relevant GitHub issues that this PR addresses (e.g., `Fixes #123`, `Closes #456`).
 
-### Related Issues
+## 🎯 Changes
 
-<!-- List any issues that this pull request addresses or resolves. Use the format `#ISSUE_NUMBER`. -->
+List the main changes made:
 
-### Motivation and Context
+*   [ ] Added new feature: `[Description]`
+*   [ ] Fixed a bug: `[Description]`
+*   [ ] Refactored code: `[Description]`
+*   [ ] Updated documentation: `[Description]`
+*   [ ] Added tests: `[Description]`
+*   [ ] Chore: `[Description]`
 
-<!-- Explain why these changes are necessary and what problem they solve. -->
+## 💡 Motivation & Context
 
-### Types of changes
+Why were these changes necessary? Explain the business or technical reasoning behind this PR.
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Code quality improvements
-- [ ] Performance improvements
-- [ ] Dependency updates
-- [ ] Documentation update
-- [ ] Other (please specify):
+## 📸 Screenshots/Recordings (if applicable)
 
-### How Has This Been Tested?
+If your changes affect the UI, please include screenshots or a short recording demonstrating the new behavior or fix.
 
-<!-- Describe the tests that you ran to verify your changes. Provide any relevant details, such as test cases or specific commands used. -->
+## ✅ Checklist
 
-### Screenshots (if appropriate):
+Before submitting your pull request, please ensure you have:
 
-<!-- Include screenshots or GIFs if the changes involve UI modifications. -->
+*   [ ] **Code Quality:** Adhered to Apex technical standards (SOLID, DRY, KISS, CQS).
+*   [ ] **Linting & Formatting:** Ran `biome check --apply` (or equivalent for the project stack) and the code is clean.
+*   [ ] **Testing:** All tests pass (`vitest` or `pytest`, etc.).
+*   [ ] **New Tests:** Added comprehensive tests for new functionality or bug fixes.
+*   [ ] **Documentation:** Updated `README.md` and other relevant documentation.
+*   [ ] **CI/CD:** Verified that GitHub Actions workflows pass.
+*   [ ] **Security:** Reviewed for potential security vulnerabilities (OWASP Top 10 2025).
+*   [ ] **Conventional Commits:** Used the correct commit message format (e.g., `feat:`, `fix:`).
+*   [ ] **Atomic Commit:** The final commit is clean and reflects the completed work.
 
-### Additional comments
+## 🌟 Star ⭐ This Repo
 
-<!-- Add any other comments or information that might be helpful for reviewers. -->
+If you found this project helpful, please consider starring the repository to show your support!
