@@ -1,205 +1,310 @@
-# 📘 Visual Time Travel
+# ChronoLens: Visual History Browser Platform
 
-A browser extension that captures and organizes a visual timeline of your browsing history, making it easier to find and revisit important information.
+[![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/chrono-lens-platform/ci.yml?branch=main&label=CI%2FCD&logo=githubactions)](https://github.com/your-username/chrono-lens-platform/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/your-username/chrono-lens-platform?label=Coverage)](https://codecov.io/gh/your-username/chrono-lens-platform)
+[![TypeScript Version](https://img.shields.io/badge/TypeScript-6.x-blue)](https://www.typescriptlang.org/)
+[![Vite Version](https://img.shields.io/badge/Vite-7.x-yellow)](https://vitejs.dev/)
+[![Biome Version](https://img.shields.io/badge/Linter-Biome-green)](https://biomejs.dev/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-orange)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Stars](https://img.shields.io/github/stars/your-username/chrono-lens-platform?style=social)](https://github.com/your-username/chrono-lens-platform/stargazers)
 
-![Visual Time Travel Banner](https://i.imgur.com/JKgvHqZ.png)
+## 🚀 ChronoLens: Transform Your Digital Past into a Visual Timeline
 
-## ✨ Description
+ChronoLens is an enterprise-grade SaaS platform that revolutionizes how you interact with your web browsing history. It transforms this raw data into a searchable, secure, and intuitive visual timeline, enabling unparalleled recall and organization of your digital experiences.
 
-Visual Time Travel is a powerful browser extension that automatically captures screenshots as you browse the web, creating a visual record of your browsing history. Unlike traditional text-based history, Visual Time Travel gives you a visual snapshot of each page, making it easier to recognize and recall the content you've seen before.
+## 🏗️ Architecture Overview
 
-The extension works seamlessly in the background, capturing screenshots when you navigate to new tabs and organizing them in a chronological timeline. You can easily search and filter your visual history by date, domain, or keywords, and revisit any page with a single click.
-
-## 🚀 Live Demo
-
-Check out our [Visual Time Travel Website](https://chirag127.github.io/Visual-Time-Travel2/) for more information and installation instructions.
-
-The website includes:
-
--   Comprehensive overview of features and functionality
--   Step-by-step installation guide
--   Detailed privacy policy explaining data handling and permissions
--   Dark-themed responsive design for optimal viewing on all devices
-
-## 🧪 Features
-
--   **Automatic Screenshot Capture**: Captures screenshots when you navigate to new tabs
--   **Visual Timeline**: Browse your history with an intuitive visual interface
--   **Search & Filter**: Find pages by date, domain, or keywords
--   **Secure Storage**: All data is stored securely with proper authentication
--   **Cross-Browser Support**: Works on Chrome, Firefox, and Edge
--   **User Authentication**: Secure login with JWT
--   **Customizable Settings**: Control when screenshots are captured
--   **Responsive Design**: Works on various screen sizes
-
----
-
-## 💻 Project Structure
-
-```
-visual-time-travel/
-├── extension/
-│   ├── manifest.json
-│   ├── js/
-│   │   ├── background-simple.js
-│   │   ├── popup-simple.js
-│   │   ├── api.js
-│   │   ├── storage.js
-│   │   └── timeline.js
-│   ├── html/
-│   │   ├── popup.html
-│   │   └── timeline.html
-│   ├── css/
-│   │   ├── popup.css
-│   │   └── timeline.css
-│   └── images/
-├── backend/
-│   ├── server.js
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── screenshotRoutes.js
-│   │   └── historyRoutes.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── screenshotController.js
-│   │   └── historyController.js
-│   ├── models/
-│   │   ├── User.js
-│   │   └── History.js
-│   ├── middleware/
-│   │   └── authMiddleware.js
-│   └── services/
-│       └── imageUpload/
-├── index.html           # Landing page
-├── privacy-policy.html  # Privacy policy page
-├── styles.css           # Styles for landing pages
-└── README.md
+```ascii
+                                    +--------------------+
+                                    |   Cloud-Native     |
+                                    |    Web Service     |
+                                    | (Node.js/Express)  |
+                                    +--------+-----------+
+                                             |
+                                             | API (GraphQL/REST)
+                                             |
++-----------------+      +-------------------+-------------------+
+| Browser Extension |<---->| Browser History API/Storage       |
+| (TypeScript/WXT)  |      | (Secure, Encrypted, User-Managed) |
++-----------------+      +-----------------------------------+
+                                             |
+                                             v
+                                    +--------------------+
+                                    |    Database        |
+                                    | (PostgreSQL/Cloud) |
+                                    +--------------------+
 ```
 
-## 💪 Tech Stack / Tools Used
+## 🗺️ Table of Contents
 
--   **Frontend**: HTML, CSS, JavaScript (Vanilla)
--   **Backend**: Node.js, Express.js
--   **Database**: MongoDB
--   **Authentication**: JWT (JSON Web Tokens)
--   **Image Hosting**: FreeImage.host API
--   **Browser APIs**: Chrome Extension API, Tabs API, Storage API
--   **Version Control**: Git, GitHub
+*   [🚀 ChronoLens: Transform Your Digital Past into a Visual Timeline](#-chrono-lens-transform-your-digital-past-into-a-visual-timeline)
+*   [🏗️ Architecture Overview](#-architecture-overview)
+*   [🗺️ Table of Contents](#-table-of-contents)
+*   [✨ Key Features](#-key-features)
+*   [🛠️ Tech Stack](#-tech-stack)
+*   [📦 Installation](#-installation)
+*   [▶️ Usage](#-usage)
+*   [🧪 Testing](#-testing)
+*   [🔒 Security](#-security)
+*   [📜 License](#-license)
+*   [🤝 Contributing](#-contributing)
+*   [🤖 AI Agent Directives](#-ai-agent-directives)
 
----
+## ✨ Key Features
 
-## 📦 Installation Instructions
+*   **Visual Timeline:** Reconstruct your browsing journey with an interactive, time-ordered visual representation.
+*   **Intelligent Search:** Find past websites and information instantly using semantic search capabilities.
+*   **Secure Storage:** Your browsing data is encrypted and stored securely, with user control over data privacy.
+*   **Cross-Device Sync:** Seamlessly access your timeline across different browsers and devices.
+*   **Enterprise-Grade:** Built for scalability, reliability, and robust data management.
 
-### Prerequisites
+## 🛠️ Tech Stack
 
--   Node.js (v18 or higher)
--   MongoDB
--   Chrome, Firefox, or Edge browser
+*   **Frontend/Extension:** TypeScript, Vite 7, WXT (Web Extension Toolkit), TailwindCSS v4
+*   **Backend:** Node.js, Express.js (or alternative for API Gateway)
+*   **Database:** PostgreSQL (or managed cloud SQL solution)
+*   **Linting/Formatting:** Biome
+*   **Testing:** Vitest (Unit), Playwright (E2E)
+*   **CI/CD:** GitHub Actions
 
-### Backend Setup
+## 📦 Installation
 
-1. Clone the repository:
+### Browser Extension
 
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/your-username/chrono-lens-platform.git
+    cd chrono-lens-platform
     ```
-    git clone https://github.com/chirag127/Visual-Time-Travel2.git
-    cd Visual-Time-Travel2
+2.  Navigate to the extension directory:
+    ```bash
+    cd packages/extension
     ```
-
-2. Install backend dependencies:
-
-    ```
-    cd backend
+3.  Install dependencies:
+    ```bash
     npm install
     ```
+4.  Build and load the extension in your browser (refer to browser-specific documentation for manual loading of unpacked extensions).
 
-3. Create a `.env` file in the backend directory with the following variables:
+### Web Service
 
+1.  Navigate to the backend directory:
+    ```bash
+    cd packages/backend
     ```
-    PORT=5000
-    MONGODB_URI=mongodb://localhost:27017/visual-time-travel
-    JWT_SECRET=your-secret-key
-    FREE_IMAGE_HOST_API_KEY=your-freeimage-host-api-key
+2.  Install dependencies:
+    ```bash
+    npm install
     ```
-
-4. Start the backend server:
-    ```
+3.  Configure environment variables (e.g., `.env` file for database connection, API keys).
+4.  Start the development server:
+    ```bash
     npm run dev
     ```
 
-### Extension Setup
+## ▶️ Usage
 
-1. Navigate to the extension directory:
+Once the browser extension is installed and the web service is running, ChronoLens will automatically begin capturing your browsing history. Access the visual timeline via the extension's popup or by navigating to the web application URL.
 
+## 🧪 Testing
+
+Automated tests are crucial for maintaining ChronoLens's high standards.
+
+*   **Run Unit Tests:**
+    ```bash
+    npm run test:unit
     ```
-    cd extension
+*   **Run E2E Tests:**
+    ```bash
+    npm run test:e2e
+    ```
+*   **Run Linter & Formatter:**
+    ```bash
+    npm run lint
     ```
 
-2. Load the extension in your browser:
+## 🔒 Security
 
-    - **Chrome/Edge**:
+Security is paramount for ChronoLens. All sensitive user data is encrypted both in transit and at rest. The browser extension operates with strict privacy controls, ensuring users remain in complete command of their data.
 
-        1. Go to `chrome://extensions/` or `edge://extensions/`
-        2. Enable "Developer mode"
-        3. Click "Load unpacked"
-        4. Select the `extension` directory
+*   **Input Sanitization:** All user-provided inputs are rigorously validated and sanitized.
+*   **Data Encryption:** End-to-end encryption is employed for all historical data.
+*   **Dependency Auditing:** Regular security audits of all project dependencies are performed.
 
-    - **Firefox**:
-        1. Go to `about:debugging#/runtime/this-firefox`
-        2. Click "Load Temporary Add-on"
-        3. Select any file in the `extension` directory
+## 📜 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license. See the [LICENSE](LICENSE) file for more details.
+
+## 🤝 Contributing
+
+We welcome contributions! Please refer to our [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for detailed guidelines on how to submit pull requests, report bugs, and suggest enhancements.
+
+## 🤖 AI Agent Directives
+
+<details>
+<summary>Click to expand AI Agent Directives</summary>
+
+## SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
+
+### 1. IDENTITY & PRIME DIRECTIVE
+**Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
+**Context:** Current Date is **December 2025**. You are building for the 2026 standard.
+**Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
+**Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
 ---
 
-## 🔧 Usage
-
-1. **Sign Up/Login**: Click on the extension icon and create an account or log in.
-2. **Browse Normally**: The extension will automatically capture screenshots as you browse.
-3. **View Timeline**: Click on the extension icon and select "View Timeline" to see your visual history.
-4. **Search & Filter**: Use the search bar and filters to find specific pages.
-5. **Revisit Pages**: Click on any screenshot to revisit that page in a new tab.
-6. **Toggle Capturing**: Enable or disable screenshot capturing through the extension popup.
-
-## 👨‍💻 API Endpoints
-
--   `POST /api/auth/signup` - Register a new user
--   `POST /api/auth/login` - Login and get JWT token
--   `POST /api/auth/logout` - Logout and invalidate token
--   `POST /api/upload-screenshot` - Upload a screenshot
--   `GET /api/history` - Get user's browsing history
-
-## 👍 Contributing
-
-We welcome contributions to Visual Time Travel! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add some amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-Please make sure to update tests as appropriate and follow our code of conduct.
-
-## 🌐 Website
-
-The project includes a GitHub Pages website with:
-
--   **Landing Page**: Overview of the extension, features, and installation instructions
--   **Privacy Policy**: Detailed information about data handling, permissions, and user rights
--   **Responsive Design**: Dark-themed interface that works on all devices
-
-To view the website locally:
-
-```
-# Open index.html in your browser
-open index.html
-```
-
-The website is automatically deployed to GitHub Pages when changes are pushed to the main branch.
-
-## 🚪 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### 2. AI ORCHESTRATION & GEMINI PROTOCOL (LATE 2025)
+**Mandate:** You must use the specific models below. Strictly follow this **Fallback Cascade**. Always try the smartest model first.
+*   **Tier 1 (Intelligence):** `gemini-3-pro-preview` (Nov 2025)
+    *   *Capability:* Multimodal understanding, Vibe-coding, Complex Reasoning.
+    *   *Context:* 1M Input / 65k Output.
+*   **Tier 2 (Reasoning/STEM):** `gemini-2.5-pro` (Stable)
+    *   *Capability:* Advanced thinking, Codebases, Math.
+    *   *Context:* 1M Input / 65k Output.
+*   **Tier 3 (Balanced Speed):** `gemini-2.5-flash` (Stable)
+    *   *Capability:* Large scale processing, Agentic use cases.
+    *   *Context:* 1M Input / 65k Output.
+*   **Tier 4 (Ultra-Fast/Cost):** `gemini-2.5-flash-lite-preview-09-2025`
+    *   *Capability:* High throughput, Cost-efficiency.
+    *   *Context:* 1M Input / 65k Output.
+*   **Tier 5 (Legacy/Specialized):**
+    *   `gemini-2.0-flash` (Workhorse fallback).
+    *   `gemini-2.5-flash-native-audio-preview-09-2025` (Audio I/O).
+*   **Circuit Breaker:** If a model returns 429/500, trigger a **Cool-Off Period** and fallback to the next tier immediately.
+*   **Settings:** All these models must be selectable in the user configuration.
 
 ---
 
-Made with ❤️ by [Chirag Singhal](https://github.com/chirag127)
+### 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+**Directives:** Detect the project type (`package.json`, `Cargo.toml`, `pyproject.toml`) and apply the corresponding **Apex Toolchain**.
+*   **SCENARIO A: WEB / APP / EXTENSION (TypeScript)**
+    *   **Stack:** **TypeScript 6.x** (Strict), **Vite 7** (Rolldown), **Tauri v2.x** (Native), **WXT** (Extensions).
+    *   **State:** **Signals** (Standardized).
+    *   **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
+*   **SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go)**
+    *   **Stack:** **Rust 1.8x** (Cargo) or **Go 1.2x**.
+    *   **Lint:** **Clippy** / **GolangCI-Lint**.
+*   **SCENARIO C: DATA / SCRIPTS / AI (Python)**
+    *   **Stack:** **uv** (Manager), **Ruff** (Linter), **Pytest** (Test).
+
+---
+
+### 4. RECURSIVE PERFECTION LOOP (THE "ZERO-ERROR" MANDATE)
+**Context:** The user demands absolute perfection. You must not stop until the codebase is pristine.
+**The Loop:**
+1.  **Analyze:** Scan the codebase.
+2.  **Fix:** Apply architectural patterns and fixes.
+3.  **Lint/Format:** Run `biome check --apply` / `ruff check --fix`.
+4.  **Test:** Run `vitest` / `pytest`.
+5.  **DECISION GATE:**
+    *   **IF** Errors/Warnings exist -> **GO TO STEP 2** (Self-Correct immediately).
+    *   **IF** Clean -> **COMMIT** and Present.
+**Constraint:** **DO NOT STOP** until the build is perfectly clean.
+
+---
+
+### 5. CORE ARCHITECTURAL PRINCIPLES
+*   **SOLID MANDATE:** SRP, OCP, LSP, ISP, DIP.
+*   **MODULARITY:** Feature-First Structure (`features/auth`), not type.
+*   **CQS:** Methods must be **Commands** (Action) or **Queries** (Data), never both.
+*   **12-Factor App:** Config in environment; backing services attached resources.
+
+---
+
+### 6. CODE HYGIENE & STANDARDS (READABILITY FIRST)
+*   **SEMANTIC NAMING PROTOCOL:**
+    *   **Descriptive Verbs:** `calculateWeeklyPay` (Good) vs `calc` (Bad).
+    *   **Casing:** `camelCase` (JS/TS), `snake_case` (Python), `PascalCase` (Classes).
+*   **CLEAN CODE RULES:**
+    *   **Verticality:** Optimize for reading down.
+    *   **No Nesting:** Use **Guard Clauses** (`return early`).
+    *   **DRY & KISS:** Automate repetitive tasks. Keep logic simple.
+    *   **Zero Comments:** Code must be **Self-Documenting**. Use comments *only* for "Why".
+
+---
+
+### 7. RELIABILITY, SECURITY & SUSTAINABILITY
+*   **DEVSECOPS PROTOCOL:**
+    *   **Zero Trust:** Sanitize **ALL** inputs (OWASP Top 10 2025).
+    *   **Supply Chain:** Generate **SBOMs** for all builds.
+    *   **Fail Fast:** Throw errors immediately on invalid state.
+    *   **Encryption:** Secure sensitive data at rest and in transit.
+*   **EXCEPTION HANDLING:**
+    *   **Resilience:** App must **NEVER** crash. Wrap critical I/O in `try-catch-finally`.
+    *   **Recovery:** Implement retry logic with exponential backoff.
+*   **GREEN SOFTWARE:**
+    *   **Rule of Least Power:** Choose the lightest tool for the job.
+    *   **Efficiency:** Optimize loops ($O(n)$ over $O(n^2)$).
+    *   **Lazy Loading:** Load resources only when needed.
+
+---
+
+### 8. COMPREHENSIVE TESTING STRATEGY
+*   **FOLDER SEPARATION PROTOCOL:**
+    *   **Production Purity:** Source folder is for code ONLY.
+    *   **Mirror Structure:** Tests reside exclusively in `tests/`.
+*   **TESTING PYRAMID (F.I.R.S.T.):**
+    *   **Fast:** Tests run in milliseconds.
+    *   **Isolated:** No external dependencies (Mock DB/Network).
+    *   **Repeatable:** Deterministic results.
+*   **COVERAGE MANDATE:**
+    *   **1:1 Mapping:** Every source file **MUST** have a corresponding test file.
+    *   **Scenario Coverage:** Test **Success**, **Failure**, and **Edge Cases**.
+    *   **Zero-Error Standard:** Software must run with 0 console errors.
+
+---
+
+### 9. UI/UX AESTHETIC SINGULARITY (2026 STANDARD)
+*   **VISUAL LANGUAGE:**
+    *   **Style:** Blend **Liquid Glass** + **Neo-Brutalist** + **Material You 3.0**.
+    *   **Motion:** **MANDATORY** fluid animations (`transition: all 0.2s`).
+*   **PERFORMANCE UX:**
+    *   **INP Optimization:** Interaction to Next Paint < 200ms.
+    *   **Optimistic UI:** UI updates instantly; server syncs in background.
+*   **INTERACTION DESIGN:**
+    *   **Hyper-Personalization:** Adapt layouts based on user behavior.
+    *   **Micro-interactions:** Every click/hover must have feedback.
+*   **HYPER-CONFIGURABILITY:**
+    *   **Mandate:** Every feature/color must be user-configurable via Settings.
+
+---
+
+### 10. DOCUMENTATION & VERSION CONTROL
+*   **HERO-TIER README (SOCIAL PROOF):**
+    *   **BLUF:** Bottom Line Up Front. Value prop first.
+    *   **Live Sync:** Update README **IN THE SAME TURN** as code changes.
+    *   **Visuals:** High-Res Badges (Shields.io), ASCII Architecture Trees.
+    *   **AI Replication Block:** Include `<details>` with stack info for other agents.
+    *   **Social Proof:** Explicitly ask users to **"Star ⭐ this Repo"**.
+*   **ADVANCED GIT OPERATIONS:**
+    *   **Context Archaeology:** Use `git log`/`git blame`.
+    *   **Conventional Commits:** Strict format (`feat:`, `fix:`, `docs:`).
+    *   **Semantic Versioning:** Enforce `Major.Minor.Patch`.
+
+---
+
+### 11. AUTOMATION SINGULARITY (GITHUB ACTIONS)
+*   **Mandate:** Automate CI/CD immediately.
+*   **Workflows:**
+    1.  **Integrity:** Lint + Test on Push.
+    2.  **Security:** Audit dependencies + SBOM.
+    3.  **Release:** Semantic Versioning + Artifact Upload.
+    4.  **Deps:** Auto-merge non-breaking updates.
+
+---
+
+### 12. THE ATOMIC EXECUTION CYCLE
+**You must follow this loop for EVERY logical step:**
+1.  **Audit:** Scan state (`ls -R`) & History (`git log`).
+2.  **Research:** Query Best Practices & Trends.
+3.  **Plan:** Architect via `clear-thought-two`.
+4.  **Act:** Fix Code + Polish + Add Settings + Write Tests.
+5.  **Automate:** Create/Update CI/CD YAMLs.
+6.  **Docs:** Update `README.md` (Replication Ready).
+7.  **Verify:** Run Tests & Linters.
+8.  **REITERATE:** If *any* error/warning exists, fix it immediately.
+    **DO NOT STOP** until the build is perfectly clean.
+9.  **Commit:** `git commit` immediately (Only when clean).
+
+</details>
