@@ -1,54 +1,69 @@
-# Security Policy
+# 🛡️ Security Policy for ChronoLens Platform
 
-## Reporting Security Vulnerabilities
+This document outlines the security policy, reporting process, and commitment to maintaining the integrity and confidentiality of the `ChronoLens-Visual-History-Browser-Platform`.
 
-We take security seriously. If you discover a security vulnerability in this project, please report it to us immediately.  Do not disclose the vulnerability publicly until we have had a chance to address it.
+As an enterprise-grade SaaS platform handling sensitive user browsing data, security is the **highest priority**. We adhere strictly to Zero Trust principles and follow OWASP Top 10 (2025) guidelines.
 
-Please follow these steps:
+## 1. Supported Versions
 
-1.  **Email:** Send an email to [Your Contact Email or Security Team Email Address] with the subject line "Security Vulnerability Report: [Project Name]"
-2.  **Details:** In your email, please include:
-    *   A clear description of the vulnerability.
-    *   Steps to reproduce the vulnerability.
-    *   The impact of the vulnerability (e.g., data breach, denial of service).
-    *   Any suggested remediation.
-3.  **Confidentiality:** Please keep the details of the vulnerability confidential until we have confirmed a fix and you are given permission to disclose it.
+We provide security updates for the latest stable release and the two previous major versions of the platform components (Extension, Backend Service, API).
 
-We will acknowledge your report within 24-48 hours. We will then work to:
+| Component | Supported Version | Status |
+| :--- | :--- | :--- |
+| Platform Core | Latest Stable | Actively Maintained |
+| Frontend (TS/Vite) | 6.x / 7.x | Actively Maintained |
+| Extension Runtime | Latest Manifest V3 | Actively Maintained |
 
-*   Confirm the vulnerability.
-*   Identify a fix.
-*   Test the fix.
-*   Release a patched version of the project.
+## 2. Reporting a Security Vulnerability
 
-We aim to address security vulnerabilities promptly. Our goal is to provide a secure and reliable platform for all users.
+We welcome responsible disclosure of security vulnerabilities. By reporting in good faith, you agree not to disclose the vulnerability publicly until the vendor has had adequate time to patch it.
 
-## Supported Versions
+**Do NOT use public channels (Issues, Pull Requests) for reporting vulnerabilities.**
 
-Use our project with the latest version. Older versions may not receive security updates.
+### Private Reporting Channels
 
-## Security Best Practices
+1.  **Email (Preferred):** Send a detailed report to `security@chronolens.io`.
+2.  **Encrypted Channel (Alternative):** Contact the Chief Architect via Signal/Keybase (details available upon initial email request).
 
-We adhere to security best practices, including but not limited to:
+### Required Report Content
 
-*   **Input Validation:** All user inputs are validated to prevent injection attacks (SQL injection, XSS, etc.).
-*   **Authentication and Authorization:** Secure authentication and authorization mechanisms are in place to protect user data and resources.
-*   **Encryption:** Sensitive data is encrypted both in transit and at rest.
-*   **Regular Security Audits:** We conduct regular security audits to identify and address potential vulnerabilities.
-*   **Dependency Management:** Dependencies are regularly updated to address known vulnerabilities.
-*   **Least Privilege:** Systems are designed using the principle of least privilege, granting only the necessary permissions.
+Please include as much detail as possible to facilitate rapid triage:
 
-## Security Tools and Practices
+*   **Vulnerability Type:** (e.g., XSS, CSRF, Insecure Direct Object Reference (IDOR)).
+*   **Affected Component:** (e.g., Browser Extension Content Script, History Ingestion API).
+*   **Proof of Concept (PoC):** Step-by-step instructions to reproduce the issue.
+*   **Potential Impact:** Severity of exploitation.
+*   **Suggested Mitigation (Optional):** If you have a fix, please include it.
 
-*   **Static Analysis:** Use of static analysis tools to identify potential security flaws during code review and CI/CD pipelines.
-*   **Dynamic Analysis:** Dynamic analysis and penetration testing are done during the development and before major releases.
-*   **Automated Security Scans:** Automated security scans are integrated into the CI/CD pipeline to detect vulnerabilities.
+## 3. Disclosure Timeline & SLA
 
-## Responsible Disclosure
+We are committed to a rapid, professional response. This timeline initiates upon confirmed receipt of a valid vulnerability report via the private channels listed above.
 
-We appreciate the efforts of security researchers.  If you report a vulnerability responsibly, we will:
+| Stage | Target SLA (Business Days) |
+| :--- | :--- |
+| Acknowledgement of Receipt | 1 Day |
+| Triage & Severity Assignment | 3 Days |
+| Patch Development Complete | 14 Days (For critical/high) |
+| Coordinated Public Disclosure | Post-Patch Deployment |
 
-*   Acknowledge your contribution.
-*   Give credit for the discovery in our release notes (if you wish).
+We will maintain continuous communication throughout the patching process.
 
-Thank you for helping us keep our project secure!
+## 4. Security Practices & Architecture
+
+We architect the ChronoLens platform following proactive security measures:
+
+*   **Data Minimization:** Browsing history is encrypted end-to-end, with only necessary metadata indexed for search. PII is heavily restricted.
+*   **Input Sanitization:** Strict use of **Biome's** formatting and validation rules, coupled with server-side input validation (Defense in Depth).
+*   **Extension Security:** All extension code utilizes strict Manifest V3 isolation, content security policies (CSP), and minimizes host permissions.
+*   **Dependency Scanning:** Automated SBOM generation and dependency checks are run in every CI pipeline using tools like Snyk or similar vulnerability scanners.
+*   **Secrets Management:** All credentials leverage cloud-native secrets managers (e.g., AWS Secrets Manager, Azure Key Vault). No secrets are committed to source control.
+
+## 5. Automated Security Monitoring (DevSecOps)
+
+Our continuous integration process (`.github/workflows/ci.yml`) enforces the following security gates before any merge is permitted:
+
+1.  **Static Analysis:** Strict linting via Biome/Ruff to catch basic coding errors that could lead to vulnerabilities.
+2.  **Dependency Scanning:** Automated checks for known CVEs in `package.json` dependencies.
+3.  **Secret Scanning:** GitHub Secret Scanning is enabled organization-wide.
+
+*We enforce the **Fail Fast** principle; any security gate failure halts the deployment pipeline.*
