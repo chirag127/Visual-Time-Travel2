@@ -1,56 +1,61 @@
-# Apex Standard .gitignore for Node/TypeScript/Vite/WXT Platform (2026)
+# Apex Technical Authority Standard .gitignore
 
-# Dependency Directories
+# Node / npm / Yarn / pnpm
+npm-debug.log.*
+npm-shrinkwrap.json
+yarn-error.log.*
+.yarnrc.yml
 node_modules/
-/pnpm-lock.yaml
-/yarn.lock
-/package-lock.json
+dist/
+build/
+*.local
 
-# Build Artifacts and Compilation Output
-/dist
-/build
-/out
-/coverage
-/.vite
-.rollup.cache
+# Vite / Webpack / Bundlers
+.vite/
+.next/
+.nuxt/
+output/
 
-# WXT/Browser Extension Specifics
-# WXT outputs packaged extensions in these folders
-.wxt/
-web-ext-artifacts/
-
-# Testing & Caching
-/.vitest
-/.biome # Biome cache directory
-.eslintcache
-/temp
-
-# Logs and Environment Files (Critical Security)
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
-.env
-.env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDE and OS Specific Files
-.DS_Store
+# IDE / Editor Configuration
 .vscode/
+.idea/
 *.sublime-workspace
-*.idea/
+*.sublime-project
+.DS_Store
 Thumbs.db
 
-# Native Desktop Builds (Placeholder for Tauri/Electron integration)
-# Assuming standard Rust/Tauri build paths for the "Platform" aspect
-src-tauri/target/
-src-tauri/gen/
-**/*.rs.bk
+# Testing Frameworks
+coverage/
+.nyc_output/
+vitest.html
 
-# Temporary Files
-*~
-*.bak
+# OS Generated Files
+.env.local
+.env.*
 *.swp
+*~
+
+# Tauri Specific
+.tauri/
+
+# Logs
+*.log
+
+# Secrets / Sensitive Data (ENSURE THESE ARE NEVER COMMITTED)
+# Example: If you have a .env file for local development, add it here.
+# DO NOT commit any files containing API keys, passwords, or other secrets.
+
+# Build artifacts (can be redundant with above, but good for clarity)
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.lib
+
+# Miscellaneous
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.biome_cache/
