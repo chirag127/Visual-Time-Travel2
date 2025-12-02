@@ -1,38 +1,65 @@
----
-# Badges configuration for ChronoLens-Visual-History-Browser-Platform
+# Badges for ChronoLens-Visual-History-Browser-Platform
 
-# Build Status Badge
-build_status:
+# Base URL for Shields.io badges
+# Base URL: https://img.shields.io/badge/<LABEL>-<MESSAGE>-<COLOR>
+# GitHub Repo URL: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform
+
+# Built badge - Use GitHub Actions status for CI
+- name: Build Status
+  image: https://img.shields.io/github/actions/workflow/user/chirag127/ChronoLens-Visual-History-Browser-Platform/ci.yml?style=flat-square&label=Build&message=Passed&color=brightgreen
   url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml
-  alt: Build Status
-  markdown: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ChronoLens-Visual-History-Browser-Platform/ci.yml?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml)"
 
-# Code Coverage Badge
-code_coverage:
+# Code Coverage badge - Use Codecov for coverage reporting
+# Assuming 'codecov' is configured and reports coverage from the main branch.
+- name: Code Coverage
+  image: https://img.shields.io/codecov/c/github/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&label=Coverage&logo=codecov
   url: https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform
-  alt: Code Coverage
-  markdown: "[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform)"
 
-# Tech Stack Badge (Example - adjust based on actual stack)
-tech_stack:
+# Tech Stack badges
+- name: TypeScript
+  image: https://img.shields.io/badge/TypeScript-3.7.5?style=flat-square&logo=typescript&logoColor=white
+  url: https://www.typescriptlang.org/
+- name: Vite
+  image: https://img.shields.io/badge/Vite-4.5.0?style=flat-square&logo=vite&logoColor=white
+  url: https://vitejs.dev/
+- name: React
+  image: https://img.shields.io/badge/React-18.3.1?style=flat-square&logo=react&logoColor=white
+  url: https://reactjs.org/
+- name: WXT
+  image: https://img.shields.io/badge/WXT-1.0.0?style=flat-square&logo=wxt&logoColor=white
+  url: https://wxt.dev/
+- name: Node.js
+  image: https://img.shields.io/badge/Node.js-20.11.1?style=flat-square&logo=nodedotjs&logoColor=white
+  url: https://nodejs.org/
+- name: Express.js
+  image: https://img.shields.io/badge/Express.js-4.19.2?style=flat-square&logo=express&logoColor=white
+  url: https://expressjs.com/
+- name: MongoDB
+  image: https://img.shields.io/badge/MongoDB-7.0.9?style=flat-square&logo=mongodb&logoColor=white
+  url: https://www.mongodb.com/
+
+# Lint/Format badge - Assuming Biome is the chosen tool based on the provided context
+# If using another linter like ESLint, update accordingly.
+- name: Lint & Format (Biome)
+  image: https://img.shields.io/badge/Biome-1.7.3?style=flat-square&logo=biome&logoColor=white
+  url: https://biomejs.dev/
+
+# License badge
+- name: License
+  image: https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue?style=flat-square&logo=creativecommons&logoColor=white
+  url: https://creativecommons.org/licenses/by-nc/4.0/
+
+# GitHub Stars badge
+- name: GitHub Stars
+  image: https://img.shields.io/github/stars/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&logo=github
   url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform
-  alt: Tech Stack
-  markdown: "[![Tech Stack](https://img.shields.io/badge/Tech-TypeScript%2C%20React%2C%20Vite-blue?style=flat-square)]()"
 
-# Lint/Format Badge (Example - adjust based on actual tools)
-lint_format:
+# Repository Size (Optional, but good for context)
+- name: Repository Size
+  image: https://img.shields.io/github/repo-size/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&logo=github
   url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform
-  alt: Lint/Format
-  markdown: "[![Lint/Format](https://img.shields.io/badge/Lint-Biome-green?style=flat-square)]()"
 
-# License Badge
-license:
-  url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/blob/main/LICENSE
-  alt: License
-  markdown: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/)"
-
-# GitHub Stars Badge
-github_stars:
-  url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform
-  alt: GitHub Stars
-  markdown: "[![Stars](https://img.shields.io/github/stars/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&label=Stars)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/stargazers)"
+# Last Commit badge (Optional)
+- name: Last Commit
+  image: https://img.shields.io/github/last-commit/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square&logo=github
+  url: https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/commits/main
