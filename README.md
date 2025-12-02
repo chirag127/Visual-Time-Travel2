@@ -1,155 +1,202 @@
-# ChronoLens - Visual History Browser Platform
+# ChronoLens-Visual-History-Browser-Platform
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ChronoLens-Visual-History-Browser-Platform/ci.yml?style=flat-square&label=Build)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/ChronoLens-Visual-History-Browser-Platform/ci.yml?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/actions/workflows/ci.yml)
 [![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://codecov.io/gh/chirag127/ChronoLens-Visual-History-Browser-Platform)
-[![License](https://img.shields.io/github/license/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](LICENSE)
+[![Tech Stack](https://img.shields.io/badge/tech-stack-TS%2C%20React%2C%20Vite%2C%20WXT%2C%20Node.js%2C%20Express.js%2C%20MongoDB-blue?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/blob/main/LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/chirag127/ChronoLens-Visual-History-Browser-Platform?style=flat-square)](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform)
 
-**ChronoLens** is a comprehensive, cloud-native SaaS platform that redefines digital memory by transforming raw web history into a secure, searchable, and visually rich timeline. Capture, organize, and recall your complete digital journey with a privacy-focused browser extension acting as the primary data ingestion point.
+## Transform Your Digital Journey into a Secure, Visual Timeline
 
-[⭐ Star this Repo](#) to support the future of personal digital archival!
-
----
-
-## 🏛️ Architecture Overview
-
-The platform utilizes a modern decoupled architecture: TypeScript/React for the front-end dashboard, WXT/Vite for the cross-browser extension, and Node.js/Express with MongoDB serving as the persistence layer for scalable data handling.
-
-mermaid
-graph TD
-    subgraph Ingestion Layer
-        A[Browser Extension (WXT/TS)] -->|HTTPS/Auth| B(API Gateway: Express/Node.js);
-    end
-
-    subgraph Platform Services
-        B --> C{Authentication/Validation};
-        C --> D[Data Processing Pipeline];
-        D --> E(MongoDB Atlas - History Records);
-        D --> F(Search Indexing Service);
-    end
-
-    subgraph Presentation Layer
-        G[Web Dashboard (React/Vite)] -->|GraphQL/REST| C;
-        G -->|Query| F;
-    end
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style G fill:#ccf,stroke:#333,stroke-width:2px
-
-
-## 📋 Table of Contents
-
-1.  [Architecture Overview](#-architecture-overview)
-2.  [Table of Contents](#-table-of-contents)
-3.  [Key Features](#-key-features)
-4.  [Technology Stack](#-technology-stack)
-5.  [Development Setup](#-development-setup)
-6.  [Core Architectural Principles](#-core-architectural-principles)
-7.  [🤖 AI Agent Directives (Apex Standard)](#-ai-agent-directives-apex-standard)
-8.  [Contributing](#-contributing)
-9.  [License](#-license)
-
-## ✨ Key Features
-
-*   **Visual Timeline Rendering:** Presents browsing history not as lists, but as a navigable, time-series visual graph.
-*   **Privacy-by-Design:** Client-side encryption support and optional local-only storage mode via the extension.
-*   **Cross-Browser Support:** Unified experience across Chrome, Firefox, and Edge using the WXT framework.
-*   **Smart Categorization:** Leverages backend services to automatically tag and categorize visited sites (e.g., Research, Shopping, Development).
-*   **Secure API:** Robust, authenticated RESTful API for dashboard synchronization and data retrieval.
-
-## 🛠️ Technology Stack
-
-| Layer | Primary Technology | Secondary/Tooling | Status |
-| :--- | :--- | :--- | :--- |
-| **Browser Extension** | TypeScript, WXT Framework | Vite, Playwright (E2E) | Active |
-| **Web Frontend** | React 19 (TSX), TailwindCSS v4 | Biome (Lint/Format), Vitest | Active |
-| **Backend API** | Node.js, Express.js | TypeScript, Jest/Vitest | Active |
-| **Database** | MongoDB Atlas | Mongoose ODM | Active |
-| **CI/CD** | GitHub Actions | Biome, Vitest/Playwright | Operational |
-
-## 🚀 Development Setup
-
-This repository contains multiple distinct sub-projects (extension, backend, frontend dashboard). Navigate to the relevant directory before running setup commands.
-
-bash
-# 1. Clone the repository
-git clone https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform.git
-cd ChronoLens-Visual-History-Browser-Platform
-
-# 2. Setup Backend (Assuming Node.js/npm is installed)
-cd backend
-npm install
-npm run dev
-
-# 3. Setup Frontend Dashboard (Assuming Node.js/npm is installed)
-cd ../frontend
-npm install
-npm run dev
-
-# 4. Setup Extension (Assumes WXT CLI is installed/configured)
-cd ../extension
-npm install
-npm run build:watch # Or relevant command to load unpacked
-
-
-### Scripts Overview
-
-| Script | Directory | Description |
-| :--- | :--- | :--- |
-| `npm run dev:api` | `backend` | Start backend server in watch mode. |
-| `npm run test:unit` | `{frontend, backend}` | Run Biome/Vitest unit tests. |
-| `npm run test:e2e` | `{root}` | Execute Playwright end-to-end suite. |
-| `npm run package` | `extension` | Build production artifacts for browser deployment. |
-
-## 💡 Core Architectural Principles
-
-We adhere strictly to enterprise architectural mandates:
-
-1.  **SOLID:** Ensuring maintainability and extensibility across the decoupled services.
-2.  **DRY (Don't Repeat Yourself):** Shared utility libraries between frontend/extension are centralized.
-3.  **YAGNI (You Ain't Gonna Need It):** Feature creep is minimized; focus remains on core visual timeline functionality.
-4.  **Security First:** All data transmission uses TLS 1.3+, and database interactions are governed by strict Mongoose schemas/validation layers.
-
----
+A cloud-native SaaS platform that transforms your web history into a searchable, secure visual timeline. Capture, organize, and recall your digital journey with a privacy-focused browser extension.
 
 <details>
-<summary>🤖 AI Agent Directives (Apex Standard: Full Stack TS/Node)</summary>
+<summary>🤖 AI AGENT DIRECTIVES (DECEMBER 2025 EDITION)</summary>
 
-## 1. IDENTITY & PRIME DIRECTIVE (REITERATED FOR AGENTS)
-**Role:** You are a Senior Principal Software Architect enforcing FAANG-level standards.
-**Context:** Project: `ChronoLens-Visual-History-Browser-Platform`. Stack: **TypeScript/Node.js/React (WXT Extension)**.
-**Output Standard:** Deliver **EXECUTION-ONLY** results. Apply architectural patterns before code generation.
+## 1. IDENTITY & PRIME DIRECTIVE
+**Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
+**Context:** Current Date is **December 2025**. You are building for the 2026 standard.
+**Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
-## 2. STACK DEFINITION & TOOLCHAIN
-*   **Language Core:** Strict TypeScript (Node 20+ / ES2022+ features).
-*   **Frontend/Extension Tooling:** **Biome** (Linter/Formatter) is the **ONLY** allowed tool for static analysis and code style enforcement. Linting rules must enforce `noUncheckedIndexedAccess` and `strict` mode.
-*   **Testing Frameworks:** **Vitest** for unit/component testing. **Playwright** for end-to-end scenarios (especially critical for testing extension behavior across browser APIs).
-*   **Architecture Pattern:** **Feature-Sliced Design (FSD)** mandated for the React Dashboard to enforce boundaries between **App, Pages, Features, Entities, Shared**.
+---
 
-## 3. ARCHITECTURAL VERIFICATION & FLOWS
-1.  **API Contract Verification:** All `backend` endpoints must include JSDoc interfaces that are explicitly imported and validated against by the `extension` payload handlers (using Zod or similar schema validation if available).
-2.  **State Management:** Within React components, prefer **Signals** (e.g., Preact Signals integrated with Vite/React setup) over traditional Context/useState for granular performance.
-3.  **Browser API Isolation:** All browser-specific calls (e.g., `chrome.history.getVisits`) in the extension **MUST** be abstracted behind an adapter layer within the `Shared/BrowserAdapters` slice, ensuring the core logic remains framework-agnostic.
+## 2. INPUT PROCESSING & COGNITION
+*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
+    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
+*   **MANDATORY MCP INSTRUMENTATION:**
+    *   **No Guessing:** Do not hallucinate APIs.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
+    *   **Validation:** Use `docfork` to verify *every* external API signature.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
-## 4. VERIFICATION COMMANDS (Agent Execution)
-To verify current standards compliance within any service directory (`backend`, `frontend`, `extension`):
+---
 
-*   **Style Check (Biome Check): `--apply-unsafe` is forbidden in CI environments.**
-    bash
-    npx @biomejs/biome check .
-    
-*   **Unit Tests:**
-    bash
-    npx vitest run --coverage
-    
-*   **Extension E2E Simulation (Requires Playwright setup):
-    bash
-    npx playwright test --project=chrome
-    
+## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript)**
+    *   **Stack:** This project leverages **TypeScript 6.x (Strict)**, **Vite 7 (Rolldown)**, **Tauri v2.x (Native)**, and **WXT (Web Extension Tooling)** for the browser extension, and **Node.js** with **Express.js** for the backend API. **MongoDB** is used for data persistence. **React** is the frontend framework.
+    *   **Linting/Formatting:** Utilizes **Biome** for ultra-fast linting and formatting across the entire codebase.
+    *   **Testing:** Employs **Vitest** for unit and integration tests, and **Playwright** for end-to-end testing of the browser extension and web application components.
+    *   **Architecture:** Adheres to **Feature-Sliced Design (FSD)** principles for the frontend (browser extension and any potential web UI) and a **Modular Monolith** or **Microservices** pattern for the backend, ensuring clear separation of concerns, maintainability, and scalability.
+
+---
+
+## 4. DEVELOPMENT STANDARDS & VERIFICATION
+*   **Principles:** SOLID, DRY, KISS, YAGNI.
+*   **Setup Commands:**
+    *   Clone the repository:
+        bash
+        git clone https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform.git
+        cd ChronoLens-Visual-History-Browser-Platform
+        
+    *   Install dependencies:
+        bash
+        # Frontend (Browser Extension & Web App)
+        npm install
+        # Backend
+        npm install --prefix ./server
+        
+*   **Scripts Table:**
+    | Script                | Description                                                 |
+    | --------------------- | ----------------------------------------------------------- |
+    | `npm run dev`         | Starts the Vite development server for frontend/extension   |
+    | `npm run build`       | Builds the production-ready frontend/extension artifact     |
+    | `npm run test:unit`   | Runs Vitest unit tests                                      |
+    | `npm run test:e2e`    | Runs Playwright end-to-end tests                            |
+    | `npm run lint`        | Runs Biome linter                                           |
+    | `npm run format`      | Runs Biome formatter                                        |
+    | `npm run server:dev`  | Starts the Express.js development server                    |
+    | `npm run server:build`| Builds the production backend                             |
 
 </details>
 
-## 📜 License
+## Table of Contents
 
-This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License**. See the [LICENSE](LICENSE) file for details.
+*   [Key Features](#key-features)
+*   [Architecture Overview](#architecture-overview)
+*   [Technology Stack](#technology-stack)
+*   [Getting Started](#getting-started)
+*   [Development Setup](#development-setup)
+*   [Contributing](#contributing)
+*   [License](#license)
+
+## Key Features
+
+*   **Visual History Timeline:** Browse your web history as an interactive visual map.
+*   **Secure & Private:** End-to-end encryption and local-first storage options ensure your data stays yours.
+*   **Smart Organization:** AI-powered tagging and categorization of visited sites.
+*   **Searchable Archive:** Quickly find past information with advanced semantic search.
+*   **Cross-Browser Support:** Works seamlessly on Chrome and Firefox.
+*   **Cloud-Native SaaS:** Scalable backend infrastructure for seamless syncing and access.
+
+## Architecture Overview
+
+mermaid
+graph TD
+    A[User Browser]
+    B[WXT Browser Extension]
+    C[Frontend App (React/Vite)]
+    D[Backend API (Node.js/Express.js)]
+    E[Database (MongoDB)]
+    F[Cloud Infrastructure]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> D
+    D --> E
+    D --> F
+    E --> F
+
+
+## Technology Stack
+
+*   **Frontend/Extension:** TypeScript, React, Vite, WXT (Web Extension Tooling)
+*   **Backend:** Node.js, Express.js
+*   **Database:** MongoDB
+*   **Infrastructure:** Cloud-Native (e.g., AWS, GCP, Azure)
+*   **Linting/Formatting:** Biome
+*   **Testing:** Vitest (Unit/Integration), Playwright (E2E)
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+*   Node.js (v20+ recommended)
+*   npm (comes with Node.js)
+*   MongoDB
+
+### Installation
+
+1.  **Clone the repo:**
+    bash
+    git clone https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform.git
+    cd ChronoLens-Visual-History-Browser-Platform
+    
+
+2.  **Install Frontend Dependencies:**
+    bash
+    npm install
+    
+
+3.  **Install Backend Dependencies:**
+    bash
+    npm install --prefix ./server
+    
+
+4.  **Configure Environment Variables:**
+    Create a `.env` file in the `server` directory with your MongoDB connection string and any other necessary variables.
+
+## Development Setup
+
+### Running the Development Server
+
+*   **Start the backend server:**
+    bash
+    npm run server:dev
+    
+
+*   **Start the frontend/extension development server:**
+    bash
+    npm run dev
+    
+
+*   **Load the extension:** Follow instructions for your browser (e.g., `chrome://extensions/` and load unpacked extension from the `.wxt/` output directory).
+
+### Running Tests
+
+*   **Run unit and integration tests:**
+    bash
+    npm run test:unit
+    
+
+*   **Run end-to-end tests:**
+    bash
+    npm run test:e2e
+    
+
+### Linting and Formatting
+
+*   **Check code style:**
+    bash
+    npm run lint
+    
+
+*   **Format code:**
+    bash
+    npm run format
+    
+
+## Contributing
+
+Contributions are always welcome! Please read the [CONTRIBUTING.md](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/blob/main/.github/CONTRIBUTING.md) file for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0) - see the [LICENSE](https://github.com/chirag127/ChronoLens-Visual-History-Browser-Platform/blob/main/LICENSE) file for details.
