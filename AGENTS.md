@@ -6,159 +6,110 @@
 **Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
----
+--- 
 
-## 2. AI ORCHESTRATION & GEMINI PROTOCOL (LATE 2025)
-**Mandate:** You must use the specific models below. Strictly follow this **Fallback Cascade**. Always try the smartest model first.
-* **Tier 1 (Intelligence):** `gemini-3-pro-preview` (Nov 2025)
-    * *Capability:* Multimodal understanding, Vibe-coding, Complex Reasoning.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 2 (Reasoning/STEM):** `gemini-2.5-pro` (Stable)
-    * *Capability:* Advanced thinking, Codebases, Math.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 3 (Balanced Speed):** `gemini-2.5-flash` (Stable)
-    * *Capability:* Large scale processing, Agentic use cases.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 4 (Ultra-Fast/Cost):** `gemini-2.5-flash-lite-preview-09-2025`
-    * *Capability:* High throughput, Cost-efficiency.
-    * *Context:* 1M Input / 65k Output.
-* **Tier 5 (Legacy/Specialized):**
-    * `gemini-2.0-flash` (Workhorse fallback).
-    * `gemini-2.5-flash-native-audio-preview-09-2025` (Audio I/O).
-* **Circuit Breaker:** If a model returns 429/500, trigger a **Cool-Off Period** and fallback to the next tier immediately.
-* **Settings:** All these models must be selectable in the user configuration.
+## 2. INPUT PROCESSING & COGNITION
+*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
+    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
+    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
+    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
+*   **MANDATORY MCP INSTRUMENTATION:**
+    *   **No Guessing:** Do not hallucinate APIs.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
+    *   **Validation:** Use `docfork` to verify *every* external API signature.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
----
+--- 
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** This project is identified as a **Browser Extension / Web Platform**. Adhering to the Apex Toolchain standards for modern web development, the mandated stack is:
+**Directives:** Detect the project type and apply the **Apex Toolchain**. This repository, `ChronoLens-Visual-History-Browser-Platform`, is a full-stack web application and browser extension.
 
-*   **SCENARIO A: WEB / APP / EXTENSION (TypeScript)**
-    *   **Stack:** **TypeScript 6.x** (Strict), **Vite 7** (Rolldown), **WXT** (for Browser Extensions).
-    *   **State:** **Signals** (Standardized).
-    *   **Lint/Test:** **Biome** (Speed) + **Vitest** (Unit) + **Playwright** (E2E).
-    *   **Note:** While the codebase may currently be JavaScript, **immediate migration to TypeScript is a core directive** for all new development and refactoring to ensure type safety and maintainability.
-* **SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go)**
-    * **Stack:** **Rust 1.8x** (Cargo) or **Go 1.2x**.
-    * **Lint:** **Clippy** / **GolangCI-Lint**.
-* **SCENARIO C: DATA / SCRIPTS / AI (Python)**
-    * **Stack:** **uv** (Manager), **Ruff** (Linter), **Pytest** (Test).
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript / JavaScript)**
+    *   **Stack:** This project leverages **TypeScript** for enhanced type safety, with **Vite 7** (Rolldown) as the build tool and bundler. The browser extension framework utilized is **WXT (Web Extension Tooling)** for modern cross-browser compatibility (Chrome, Firefox). The backend utilizes **Node.js** with **Express.js**, and the database is **MongoDB**. The frontend framework is **React**.
+    *   **Architecture:** Employing **Feature-Sliced Design (FSD)** for the frontend and **Hexagonal Architecture** for the backend to ensure modularity, testability, and maintainability.
+    *   **Linting & Formatting:** **Biome** is the chosen tool for ultra-fast linting, formatting, and code analysis, ensuring a consistent codebase.
+    *   **Testing:** **Vitest** for unit and integration testing of frontend and backend logic, and **Playwright** for end-to-end (E2E) testing of the browser extension and web platform.
+    *   **State Management:** Utilize **Signals** (standardized) for efficient and reactive state management.
 
----
+*   **SECONDARY SCENARIO: DATA / SCRIPTS / AI (Python) - *Not applicable for this project's primary function.***
+    *   **Stack:** Python 3.10+, uv, Ruff, Pytest.
+    *   **Architecture:** Modular Monolith or Microservices.
+    *   **CLI Framework:** `Click` or similar.
 
-## 4. RECURSIVE PERFECTION LOOP (THE "ZERO-ERROR" MANDATE)
-**Context:** The user demands absolute perfection. You must not stop until the codebase is pristine.
-**The Loop:**
-1.  **Analyze:** Scan the codebase.
-2.  **Fix:** Apply architectural patterns and fixes.
-3.  **Lint/Format:** Run `biome check --apply` / `ruff check --fix`.
-4.  **Test:** Run `vitest` / `pytest`.
-5.  **DECISION GATE:**
-    * **IF** Errors/Warnings exist -> **GO TO STEP 2** (Self-Correct immediately).
-    * **IF** Clean -> **COMMIT** and Present.
-**Constraint:** **DO NOT STOP** until the build is perfectly clean.
+--- 
 
----
+## 4. VERIFICATION & DEPLOYMENT PROTOCOLS
 
-## 5. CORE ARCHITECTURAL PRINCIPLES
-* **SOLID MANDATE:** SRP, OCP, LSP, ISP, DIP.
-* **MODULARITY:** Feature-First Structure (`features/auth`), not type.
-* **CQS:** Methods must be **Commands** (Action) or **Queries** (Data), never both.
-* **12-Factor App:** Config in environment; backing services attached resources.
+*   **CI/CD PIPELINE (`.github/workflows/ci.yml`):**
+    *   Automated builds, linting, testing (Vitest, Playwright), and deployment triggers on `main` branch merges.
+    *   Staging environment deployments for pull requests.
+    *   Production environment deployments for `main` branch.
+*   **Testing Strategy:**
+    *   **Unit Tests:** Cover individual components and functions using `Vitest`.
+    *   **Integration Tests:** Verify interactions between modules/services using `Vitest`.
+    *   **E2E Tests:** Simulate user flows across the browser extension and web platform using `Playwright`.
+*   **Development Workflow:**
+    *   **Branching:** Gitflow branching model (`feature/`, `bugfix/`, `release/`, `hotfix/`).
+    *   **Code Reviews:** Mandatory for all pull requests.
+    *   **Commits:** Conventional Commits standard (`feat:`, `fix:`, `chore:`, etc.).
 
----
+--- 
 
-## 6. CODE HYGIENE & STANDARDS (READABILITY FIRST)
-* **SEMANTIC NAMING PROTOCOL:**
-    * **Descriptive Verbs:** `calculateWeeklyPay` (Good) vs `calc` (Bad).
-    * **Casing:** `camelCase` (JS/TS), `snake_case` (Python), `PascalCase` (Classes).
-* **CLEAN CODE RULES:**
-    * **Verticality:** Optimize for reading down.
-    * **No Nesting:** Use **Guard Clauses** (`return early`).
-    * **DRY & KISS:** Automate repetitive tasks. Keep logic simple.
-    * **Zero Comments:** Code must be **Self-Documenting**. Use comments *only* for "Why".
+## 5. CODE QUALITY & SECURITY MANDATES
 
----
+*   **Principles:** Adhere strictly to **SOLID**, **DRY**, **KISS**, and **YAGNI** principles.
+*   **Error Handling:** Implement robust, centralized error handling and logging across frontend and backend.
+*   **Security:**
+    *   **OWASP Top 10:** Prioritize mitigation strategies for common web vulnerabilities.
+    *   **Dependency Management:** Regularly scan for and update vulnerable dependencies using `npm audit` and `yarn audit` (or equivalent for Vite/WXT). Use `dependabot` for automated security updates.
+    *   **Secrets Management:** Utilize environment variables and a secure secrets management solution (e.g., GitHub Secrets, AWS Secrets Manager) for API keys and credentials. Never commit secrets directly.
+    *   **Data Privacy:** Enforce strict data privacy measures as per the project description (privacy-focused). Implement end-to-end encryption where applicable.
 
-## 7. RELIABILITY, SECURITY & SUSTAINABILITY
-* **DEVSECOPS PROTOCOL:**
-    * **Zero Trust:** Sanitize **ALL** inputs (OWASP Top 10 2025).
-    * **Supply Chain:** Generate **SBOMs** for all builds.
-    * **Fail Fast:** Throw errors immediately on invalid state.
-    * **Encryption:** Secure sensitive data at rest and in transit.
-* **EXCEPTION HANDLING:**
-    * **Resilience:** App must **NEVER** crash. Wrap critical I/O in `try-catch-finally`.
-    * **Recovery:** Implement retry logic with exponential backoff.
-* **GREEN SOFTWARE:**
-    * **Rule of Least Power:** Choose the lightest tool for the job.
-    * **Efficiency:** Optimize loops ($O(n)$ over $O(n^2)$).
-    * **Lazy Loading:** Load resources only when needed.
+--- 
 
----
+## 6. AI ASSISTANT DIRECTIVES
 
-## 8. COMPREHENSIVE TESTING STRATEGY
-* **FOLDER SEPARATION PROTOCOL:**
-    * **Production Purity:** Source folder is for code ONLY.
-    * **Mirror Structure:** Tests reside exclusively in `tests/`.
-* **TESTING PYRAMID (F.I.R.S.T.):**
-    * **Fast:** Tests run in milliseconds.
-    * **Isolated:** No external dependencies (Mock DB/Network).
-    * **Repeatable:** Deterministic results.
-* **COVERAGE MANDATE:**
-    * **1:1 Mapping:** Every source file **MUST** have a corresponding test file.
-    * **Scenario Coverage:** Test **Success**, **Failure**, and **Edge Cases**.
-    * **Zero-Error Standard:** Software must run with 0 console errors.
+*   **Purpose:** To provide AI agents with clear, actionable directives for interacting with and evolving this codebase.
+*   **AI Toolchain:** Leverage **Node.js**, **TypeScript**, **React**, **Vite**, **WXT**, **Express.js**, and **MongoDB**. Specific AI models or libraries beyond core stack are not mandated unless explicitly stated in task context.
+*   **Architectural Alignment:** All AI-driven code generation, refactoring, or analysis must align with the **Feature-Sliced Design (FSD)** for frontend and **Hexagonal Architecture** for backend.
+*   **Verification Commands (Example - Extend as needed):
+    bash
+    # Install dependencies
+    npm install
+    # Or yarn install
 
----
+    # Build frontend (React/Vite)
+    npm run build
 
-## 9. UI/UX AESTHETIC SINGULARITY (2026 STANDARD)
-* **VISUAL LANGUAGE:**
-    * **Style:** Blend **Liquid Glass** + **Neo-Brutalist** + **Material You 3.0**.
-    * **Motion:** **MANDATORY** fluid animations (`transition: all 0.2s`).
-* **PERFORMANCE UX:**
-    * **INP Optimization:** Interaction to Next Paint < 200ms.
-    * **Optimistic UI:** UI updates instantly; server syncs in background.
-* **INTERACTION DESIGN:**
-    * **Hyper-Personalization:** Adapt layouts based on user behavior.
-    * **Micro-interactions:** Every click/hover must have feedback.
-* **HYPER-CONFIGURABILITY:**
-    * **Mandate:** Every feature/color must be user-configurable via Settings.
+    # Start frontend dev server
+    npm run dev
 
----
+    # Build backend (Node.js/Express.js)
+    # Assuming a build script exists, e.g., tsc
+    npm run build:server
 
-## 10. DOCUMENTATION & VERSION CONTROL
-* **HERO-TIER README (SOCIAL PROOF):**
-    * **BLUF:** Bottom Line Up Front. Value prop first.
-    * **Live Sync:** Update README **IN THE SAME TURN** as code changes.
-    * **Visuals:** High-Res Badges (Shields.io), ASCII Architecture Trees.
-    * **AI Replication Block:** Include `<details>` with stack info for other agents.
-    * **Social Proof:** Explicitly ask users to **"Star ⭐ this Repo"**.
-* **ADVANCED GIT OPERATIONS:**
-    * **Context Archaeology:** Use `git log`/`git blame`.
-    * **Conventional Commits:** Strict format (`feat:`, `fix:`, `docs:`).
-    * **Semantic Versioning:** Enforce `Major.Minor.Patch`.
+    # Start backend dev server
+    npm run dev:server
 
----
+    # Run Linters/Formatters (Biome)
+    npx @biomejs/biome check --apply
+    npx @biomejs/biome format --write
 
-## 11. AUTOMATION SINGULARITY (GITHUB ACTIONS)
-* **Mandate:** Automate CI/CD immediately.
-* **Workflows:**
-    1.  **Integrity:** Lint + Test on Push.
-    2.  **Security:** Audit dependencies + SBOM.
-    3.  **Release:** Semantic Versioning + Artifact Upload.
-    4.  **Deps:** Auto-merge non-breaking updates.
+    # Run Unit/Integration Tests (Vitest)
+    npm run test:unit
 
----
+    # Run E2E Tests (Playwright)
+    npm run test:e2e
 
-## 12. THE ATOMIC EXECUTION CYCLE
-**You must follow this loop for EVERY logical step:**
-1.  **Audit:** Scan state (`ls -R`) & History (`git log`).
-2.  **Research:** Query Best Practices & Trends.
-3.  **Plan:** Architect via `clear-thought-two`.
-4.  **Act:** Fix Code + Polish + Add Settings + Write Tests.
-5.  **Automate:** Create/Update CI/CD YAMLs.
-6.  **Docs:** Update `README.md` (Replication Ready).
-7.  **Verify:** Run Tests & Linters.
-8.  **REITERATE:** If *any* error/warning exists, fix it immediately.
-    **DO NOT STOP** until the build is perfectly clean.
-9.  **Commit:** `git commit` immediately (Only when clean).
+    # Build browser extension (WXT)
+    npm run build:ext
+    
+*   **AI Ethical Considerations:** Ensure all AI-generated content respects privacy, avoids bias, and adheres to ethical AI development practices. Transparency in AI usage is paramount.
+
+--- 
+
+## 7. DOCUMENTATION & ARCHIVAL PROTOCOL
+
+*   **README:** The `README.md` is the primary interface. It must be comprehensive, clear, and up-to-date, detailing setup, usage, architecture, and contribution guidelines.
+*   **AGENTS.md:** This document serves as the definitive guide for AI agents operating within this repository. It dictates the technology stack, architectural patterns, and operational protocols.
+*   **Archival:** Archived repositories are designated as "Retired Products." They must maintain professional documentation and metadata, even if inactive, to preserve their historical and technical value.
